@@ -1,0 +1,31 @@
+{
+  "name":"td1/src",
+  "authors": [
+    {
+      "name": "Jules Francois",
+      "email": "jules.francois6@etu.univ-lorraine.fr"
+    },
+    {
+      "name": "Lilian Wilt",
+      "email": "lilian.wilt9@etu.univ-lorraine.fr"
+    },
+    {
+      "name": "Kévin Unser",
+      "email": "kevin.unser5@etu.univ-lorraine.fr"
+    },
+    {
+      "name": "Alex Mangenot",
+      "email": "alex.mangenot6@etu.univ-lorraine.fr"
+    }
+  ],
+  "require": {
+    "illuminate/database": "5.0.*",
+    "slim/slim": "^3.0",
+    "php": "^7.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "src\\": "src/"
+    }
+  }
+}
