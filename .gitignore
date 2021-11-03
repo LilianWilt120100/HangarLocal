@@ -1,0 +1,3 @@
+app/api/vendor/*
+app/api/composer.lock
+app/api/conf/conf.ini.dist
