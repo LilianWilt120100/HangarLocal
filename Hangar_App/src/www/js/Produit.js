@@ -22,8 +22,8 @@ export class Produit {
                 <h4 class="card-title" id="info${this.nom}">${this.nom}
                 <img class="me-2" src="../assets/icone/info-circle-solid.svg" height=20 width=20 /></h4>
                 <div class="card-text description">
-                    <p>Vendu par : <a class="producteur">${this.producteur}</a></p>
-                    <p>quantite par lot : <a class="lot">${this.tailleLot}</a></p>
+                    <p>Vendu par : <a href="../pages/producteurs.html" class="producteur">${this.producteur}</a></p>
+                    <p>Quantite par lot : <a class="lot">${this.tailleLot}</a></p>
                     <p>Prix : <a class="prix">${this.prix}€</a></p>
                     <p>Catégorie : <a class="categorie">${this.categorie}</a></p>
                 </div>
@@ -37,6 +37,7 @@ export class Produit {
                     <a class="btn btn-outline-primary">ajouter au panier</a>`
             this.panier(qt);
             this.info(article);
+            article.getElementsByClassName
             article.appendChild(qt);
         return article;
     }
@@ -53,12 +54,26 @@ export class Produit {
         art.getElementsByTagName("h4")[0].addEventListener('click', (e) => {
             e.preventDefault();
             document.querySelector('#modalShowDesc').textContent=this.description;
-
             document.getElementById('modalShow').classList.remove('d-none');
             document.getElementById('modalShow').classList.add('show');
-        
-        
         })
+        
+        //article.getElementsByClassName()
     }
     
   }
+
+
+let prod = [];
+
+let body = document.getElementsByClassName("card-group")[0];
+prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
+     "carottes oranges", "../assets/img/carotte.png"));
+prod.push(new Produit("Poivron à l'unités", "prod1", "1", 4, "Légume",
+    "très frais", "../assets/img/poivron.png"));
+prod.push(new Produit("petit pois", "prod1", "1Kg", 5, "Légume",
+     "Petits pois qui font plaisir", "../assets/img/carotte.png"));
+
+prod.forEach(produit => {
+    body.appendChild(produit.toHTML())
+});
