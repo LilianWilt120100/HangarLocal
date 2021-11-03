@@ -32,7 +32,7 @@ export class Produit {
             qt.setAttribute("class", "card-desc");
             qt.innerHTML = `
                     <label for="quantite">
-                        <input type="number" name="quantite" class="quantite">
+                        <input type="number" name="quantite" class="quantite" min="0" value="1">
                     </label>
                     <a class="btn btn-outline-primary">ajouter au panier</a>`
             this.panier(qt);
@@ -57,7 +57,6 @@ export class Produit {
             document.getElementById('modalShow').classList.remove('d-none');
             document.getElementById('modalShow').classList.add('show');
         
-            console.log(`Vous avez ajouter au panier ${v} ${this.nom} pour un total de ${total}€`);
         
         })
     }
