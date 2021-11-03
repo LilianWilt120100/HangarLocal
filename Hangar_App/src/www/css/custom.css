@@ -13,4 +13,18 @@
   padding-left: 0.5em;
 }
 
+body {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  margin-left: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0f222d;
+}
+
 /*# sourceMappingURL=custom.css.map */

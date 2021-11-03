@@ -16,15 +16,19 @@ body {
       flex-flow: wrap;
       flex: 100%;
       margin-bottom: 40px;
-  
+      /*
       &:nth-child(even) .card-img-body {
         order: 2;
       }
   
       &:nth-child(even) .card-body {
         padding-left: 0;
-        padding-right: 1.25rem; 
+        padding-right: 0rem; 
       }
+      &:nth-child(even) .card-desc {
+        padding-right: 1.5rem;
+        margin-left: -10.5rem;
+      }*/
       
       @media (max-width: 576px) {
         display: block;
@@ -62,13 +66,18 @@ body {
     }
   
     .card-body {
-      flex: 2;
+      flex: 1;
       padding: 0 0 0 1.25rem;
       
       @media (max-width: 576px) {
         padding: 0;
       }
       
+    }
+    .card-desc {
+      flex: 1;
+      padding-top: 4%;
+      text-align: justify;
     }
   }
   

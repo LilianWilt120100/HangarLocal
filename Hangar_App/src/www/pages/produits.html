@@ -56,44 +56,6 @@
         <div class="container">
             <div class="card-group vgr-cards">
                 <!-- ajt cartes ici -->
-                <div class="card">
-                    <div class="card-img-body">
-                        <img class="card-img" src="../assets/img/carotte.png" alt="Carotte">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Carotte bio au kilo</h4>
-                        <div class="card-text description">
-                            <p>Vendu par : <a class="producteur">Michel</a></p>
-                            <p>quantite par lot : <a class="lot">1Kg</a></p>
-                            <p>Prix : <a class="prix">2.99€</a></p>
-                            <p>Catégorie : <a class="categorie">Légume</a></p>
-                        </div>
-                        <label for="quantite">
-                            <input type="text" name="quantite" class="quantite">
-                        </label>
-                        <a href="#" class="btn btn-outline-primary">ajouter au panier</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-img-body">
-                        <img class="card-img" src="../assets/img/poivron.png" alt="Poivron">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Poivron à l'unité</h4>
-                        <div class="card-text description">
-                            <p>Vendu par : <a class="producteur">Michel</a></p>
-                            <p>quantite par lot : <a class="lot">1</a></p>
-                            <p>Prix : <a class="prix">2.99€</a></p>
-                            <p>Catégorie : <a class="categorie">Légume</a></p>
-                        </div>
-                        <label for="quantite">
-                            <input type="text" name="quantite" class="quantite">
-                        </label>
-                        <a href="#" class="btn btn-outline-primary">ajouter au panier</a>
-                    </div>
-                </div>
-
                 
 
 
@@ -101,9 +63,30 @@
 
 
 
-        </div>
+
+
+            </div>
         </div>
     </section>
+
+    <div id="modalShow" class="modal fade d-block bg-opaque d-none">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalShowTitle">vue produit a faire TODO</h5>
+                    <button type="button" class="btn close">
+                        &times;
+                    </button>
+                </div>
+
+                <p class="modal-title" id="modalShowDesc">description</p>
+                <div class="modal-footer">
+                    <button type="button" id='confirmDel' class="btn btn-secondary yes" data-dismiss="modal">Oui</button>
+                    <button type="button" class="btn close btn-primary btn-danger">Non</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer-->
     <footer class="py-5 bg-primary">
