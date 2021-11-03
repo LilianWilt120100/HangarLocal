@@ -1,0 +1,16 @@
+.Nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.description{
+    a{
+        color: currentColor;
+    }
+    p{
+        padding-left: 0.5em;
+    }
+}
