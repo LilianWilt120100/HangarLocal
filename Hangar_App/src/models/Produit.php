@@ -1,10 +1,7 @@
 <?php
-namespace models;
+namespace App\Models;
 
 use \Illuminate\Database\Eloquent\Model ;
-use \Illuminate\Database\Eloquent\ModelNotFoundException ;
-
-
 
 class Produit extends Model {
    protected $table='Produit';

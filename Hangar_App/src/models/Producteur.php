@@ -1,7 +1,11 @@
 <?php
-namespace src\models;
 
-class Producteur extends \Illuminate\Database\Eloquent\Model {
+namespace App\Models;
+
+use \Illuminate\Database\Eloquent\Model ;
+
+class Producteur extends Model {
+   
    protected $table='Producteur';
    protected $primaryKey='id';
 
