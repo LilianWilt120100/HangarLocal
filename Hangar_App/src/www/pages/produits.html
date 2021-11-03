@@ -72,18 +72,29 @@
     <div id="modalShow" class="modal fade d-block bg-opaque d-none">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalShowTitle">vue produit a faire TODO</h5>
-                    <button type="button" class="btn close">
+                <div class="modal-header" 
+                style="background-image: url(../assets/img/carotte.png);
+                background-size: 50%;
+                width:auto;
+                height:auto;
+                padding-bottom: 6em;
+                background-position: center;
+                background-repeat: no-repeat;">
+                    <h5 class="modal-title" id="modalShowTitle">Carotte bio 1 kg</h5>                    <button type="button" class="btn close">
                         &times;
                     </button>
                 </div>
 
-                <p class="modal-title" id="modalShowDesc">description</p>
-                <div class="modal-footer">
-                    <button type="button" id='confirmDel' class="btn btn-secondary yes" data-dismiss="modal">Oui</button>
-                    <button type="button" class="btn close btn-primary btn-danger">Non</button>
-                </div>
+                <p class="" id="modalShowDesc">description</p>
+                <p>prix : 2.99€</p>
+                <div class="d-flex">
+                    <p>producteur : </p>
+                    <a  href="">michel</a>
+                </div>      
+                <div class="d-flex">
+                    <input type="number" placeholder="quantité" class="quantité">
+                    <button class="btn btn-outline-primary">ajouter au panier</button>
+                </div>                 </div>
             </div>
         </div>
     </div>
