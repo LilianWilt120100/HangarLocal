@@ -27,4 +27,13 @@ body {
   background-color: #0f222d;
 }
 
+.infoBox {
+  background-size: 50%;
+  width: auto;
+  height: auto;
+  padding-bottom: 6em;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /*# sourceMappingURL=custom.css.map */

@@ -53,7 +53,20 @@ export class Produit {
     info(art){
         art.getElementsByTagName("h4")[0].addEventListener('click', (e) => {
             e.preventDefault();
-            document.querySelector('#modalShowDesc').textContent=this.description;
+            document.getElementById('modalShowTitle').textContent=this.name;
+            document.getElementById('modalShowDesc').textContent=this.description;
+            document.getElementById('modalShowImg').style.backgroundImage =`url(${this.img})`;
+            document.getElementById('modalShowPrice').textContent ="Prix : "+this.prix+"€";
+            document.getElementById('modalShowProd').textContent =this.producteur;
+            document.getElementById('modalShowAddCart').addEventListener('click', (e) => {
+                e.preventDefault();
+                let v = document.getElementById('modalShowGetQuantity').value;
+                let total = v * this.prix;
+                console.log(`Vous avez ajouter au panier ${v} ${this.nom} pour un total de ${total}€`);
+            
+            })
+            
+            
             document.getElementById('modalShow').classList.remove('d-none');
             document.getElementById('modalShow').classList.add('show');
         })

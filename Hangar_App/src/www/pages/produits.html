@@ -72,31 +72,26 @@
     <div id="modalShow" class="modal fade d-block bg-opaque d-none">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header" 
-                style="background-image: url(../assets/img/carotte.png);
-                background-size: 50%;
-                width:auto;
-                height:auto;
-                padding-bottom: 6em;
-                background-position: center;
-                background-repeat: no-repeat;">
-                    <h5 class="modal-title" id="modalShowTitle">Carotte bio 1 kg</h5>                    <button type="button" class="btn close">
+                <div id="modalShowImg" class="modal-header infoBox" style="background-image: url(../assets/img/carotte.png);">
+                    <h5 class="modal-title" id="modalShowTitle">Carotte bio 1 kg</h5> 
+                    <button type="button" class="btn close">
                         &times;
                     </button>
                 </div>
-
+    
                 <p class="" id="modalShowDesc">description</p>
-                <p>prix : 2.99€</p>
+                <p id="modalShowPrice">Prix : 2.99€</p>
                 <div class="d-flex">
-                    <p>producteur : </p>
-                    <a  href="">michel</a>
-                </div>      
+                    <p>producteur : <a id="modalShowProd" href="">Michel</a></p>
+                    
+                </div>
                 <div class="d-flex">
-                    <input type="number" placeholder="quantité" class="quantité">
-                    <button class="btn btn-outline-primary">ajouter au panier</button>
-                </div>                 </div>
+                    <input id="modalShowGetQuantity" type="number" name="quantite" class="quantite" min="0" value="1" class="quantite">
+                    <button id="modalShowAddCart" class="btn btn-outline-primary">ajouter au panier</button>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- Footer-->
