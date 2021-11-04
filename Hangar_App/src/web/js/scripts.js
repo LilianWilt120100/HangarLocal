@@ -1,4 +1,5 @@
 import { ajtListe, ajtCarte } from "./Produit.js";
+import { ajtCommande } from "./Commande.js";
 
 
 //close les modal
@@ -18,9 +19,11 @@ switch (window.location.pathname) {
     case "/Hangar_App/src/web/html/produits.html":
         ajtCarte();
         break;
-    case "/Hangar_App/src/web/index.html":
-        console.log('sal');
-        load();
+    case "/Hangar_App/src/web/html/produits.html":
+        ajtCarte();
+        break;
+    case "/Hangar_App/src/web/html/mesCommandes.html":
+        ajtCommande();
         break;
     
 

@@ -87,7 +87,7 @@ export class Produit {
   }
 
 
-function creerProduit() {
+export function creerProduit() {
     let prod = [];
 
     prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
