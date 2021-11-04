@@ -15,17 +15,12 @@ export class Produit {
         article.setAttribute("class", "card");
         
         article.innerHTML= `
-            <div class="card-img-body">
-                <img class="card-img" src="${this.img}" alt="image de ${this.nom}">
-            </div>
-            <div class="card-body">
+            <div class="card-body d-flex">
                 <h4 class="card-title" id="info${this.nom}">${this.nom}
                 <img class="me-2" src="../assets/icone/info-circle-solid.svg" height=20 width=20 /></h4>
-                <div class="card-text description">
+                <div class="card-text description d-flex">
                     <p>Vendu par : <a href="../pages/producteurs.html" class="producteur">${this.producteur}</a></p>
-                    <p>Quantite par lot : <a class="lot">${this.tailleLot}</a></p>
                     <p>Prix : <a class="prix">${this.prix}€</a></p>
-                    <p>Catégorie : <a class="categorie">${this.categorie}</a></p>
                 </div>
             </div>`
             let qt = document.createElement("div");
@@ -41,6 +36,21 @@ export class Produit {
             article.appendChild(qt);
         return article;
     }
+    toProduct() {
+        let tr = document.createElement("tr");
+        
+        tr.innerHTML= `
+            <th scope="row">${this.nom}</th>
+            <td>${this.description}</td>
+            <td>${this.prix}€</td>
+            <td>${this.tailleLot}</td>
+            <td>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                <img class="me-2" src="../assets/icone/trash-solid-red.svg" height=20 width=20 />
+            </div>`
+        return tr;
+    }
     panier(qt){
         qt.getElementsByTagName("a")[0].addEventListener('click', (e) => {
             e.preventDefault();
@@ -53,8 +63,8 @@ export class Produit {
     info(art){
         art.getElementsByTagName("h4")[0].addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById('modalShowTitle').textContent=this.name;
-            document.getElementById('modalShowDesc').textContent=this.description;
+            document.getElementById('modalShowTitle').textContent=this.nom;
+            document.getElementById('modalShowDesc').textContent=this.description + " Quantité par lot : " + this.tailleLot;
             document.getElementById('modalShowImg').style.backgroundImage =`url(${this.img})`;
             document.getElementById('modalShowPrice').textContent ="Prix : "+this.prix+"€";
             document.getElementById('modalShowProd').textContent =this.producteur;
@@ -77,16 +87,30 @@ export class Produit {
   }
 
 
-let prod = [];
+function creerProduit() {
+    let prod = [];
 
-let body = document.getElementsByClassName("card-group")[0];
-prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
-     "carottes oranges", "../assets/img/carotte.png"));
-prod.push(new Produit("Poivron à l'unités", "prod1", "1", 4, "Légume",
-    "très frais", "../assets/img/poivron.png"));
-prod.push(new Produit("petit pois", "prod1", "1Kg", 5, "Légume",
-     "Petits pois qui font plaisir", "../assets/img/carotte.png"));
+    prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
+        "carottes oranges", "../assets/img/carotte.png"));
+    prod.push(new Produit("Poivron à l'unités", "prod1", "1", 4, "Légume",
+        "très frais", "../assets/img/poivron.png"));
+    prod.push(new Produit("petit pois", "prod1", "1Kg", 5, "Légume",
+        "Petits pois qui font plaisir", "../assets/img/carotte.png"));
 
-prod.forEach(produit => {
-    body.appendChild(produit.toHTML())
-});
+    return prod;
+}
+export function ajtCarte() {
+    let prod= creerProduit();
+    let body = document.getElementsByClassName("card-group")[0];
+    prod.forEach(produit => {
+        body.appendChild(produit.toHTML())
+    });
+}
+export function ajtListe() {
+    console.log("sah");
+    let prod= creerProduit();
+    let liste = document.getElementById("listProduits");
+    prod.forEach(produit => {
+        liste.appendChild(produit.toProduct());
+    });
+}
