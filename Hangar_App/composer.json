@@ -4,7 +4,8 @@
         "slim/slim": "^4",
         "slim/psr7": "^1.5",
         "laravel/laravel": "^8.6",
-        "illuminate/database": "^8.64"
+        "illuminate/database": "^8.64",
+    "php-di/php-di": "^6.3"
   },
   "autoload": {
     "psr-4": {
