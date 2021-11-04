@@ -36,6 +36,16 @@ export class Produit {
             article.appendChild(qt);
         return article;
     }
+    toProduct() {
+        let tr = document.createElement("tr");
+        
+        tr.innerHTML= `
+            <th scope="row">${this.nom}</th>
+            <td>${this.description}</td>
+            <td>${this.prix}</td>
+            <td>${this.tailleLot}</td>`
+        return tr;
+    }
     panier(qt){
         qt.getElementsByTagName("a")[0].addEventListener('click', (e) => {
             e.preventDefault();
@@ -72,16 +82,30 @@ export class Produit {
   }
 
 
-let prod = [];
+function creerProduit() {
+    let prod = [];
 
-let body = document.getElementsByClassName("card-group")[0];
-prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
-     "carottes oranges", "../assets/img/carotte.png"));
-prod.push(new Produit("Poivron à l'unités", "prod1", "1", 4, "Légume",
-    "très frais", "../assets/img/poivron.png"));
-prod.push(new Produit("petit pois", "prod1", "1Kg", 5, "Légume",
-     "Petits pois qui font plaisir", "../assets/img/carotte.png"));
+    prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
+        "carottes oranges", "../assets/img/carotte.png"));
+    prod.push(new Produit("Poivron à l'unités", "prod1", "1", 4, "Légume",
+        "très frais", "../assets/img/poivron.png"));
+    prod.push(new Produit("petit pois", "prod1", "1Kg", 5, "Légume",
+        "Petits pois qui font plaisir", "../assets/img/carotte.png"));
 
-prod.forEach(produit => {
-    body.appendChild(produit.toHTML())
-});
+    return prod;
+}
+export function ajtCarte() {
+    let prod= creerProduit();
+    let body = document.getElementsByClassName("card-group")[0];
+    prod.forEach(produit => {
+        body.appendChild(produit.toHTML())
+    });
+}
+export function ajtListe() {
+    console.log("sah");
+    let prod= creerProduit();
+    let liste = document.getElementById("listProduits");
+    prod.forEach(produit => {
+        liste.appendChild(produit.toProduct());
+    });
+}

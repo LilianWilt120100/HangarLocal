@@ -1,4 +1,4 @@
-document.getElementById("formLogin").addEventListener('click', (e) => {
+document.getElementById("formLogin").addEventListener('submit', (e) => {
     e.preventDefault();
     let log = document.getElementById('login').value;
     let pass = document.getElementById('pass').value;

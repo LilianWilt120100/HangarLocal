@@ -1,4 +1,4 @@
-
+import { ajtListe, ajtCarte } from "./Produit.js";
 
 
 //close les modal
@@ -10,3 +10,15 @@ Array.prototype.forEach.call(close, function (el) {
         document.querySelector('#modalShow').classList.add('d-none');
     });
 });
+
+switch (window.location.pathname) {
+    case "/Hangar_App/src/web/html/mesProduits.html":
+        ajtListe();
+        break;
+    case "/Hangar_App/src/web/html/produits.html":
+        ajtCarte();
+        break;
+
+    default:
+        break;
+}
