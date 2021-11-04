@@ -42,8 +42,13 @@ export class Produit {
         tr.innerHTML= `
             <th scope="row">${this.nom}</th>
             <td>${this.description}</td>
-            <td>${this.prix}</td>
-            <td>${this.tailleLot}</td>`
+            <td>${this.prix}€</td>
+            <td>${this.tailleLot}</td>
+            <td>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                <img class="me-2" src="../assets/icone/trash-solid-red.svg" height=20 width=20 />
+            </div>`
         return tr;
     }
     panier(qt){
