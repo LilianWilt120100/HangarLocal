@@ -15,17 +15,12 @@ export class Produit {
         article.setAttribute("class", "card");
         
         article.innerHTML= `
-            <div class="card-img-body">
-                <img class="card-img" src="${this.img}" alt="image de ${this.nom}">
-            </div>
-            <div class="card-body">
+            <div class="card-body d-flex">
                 <h4 class="card-title" id="info${this.nom}">${this.nom}
                 <img class="me-2" src="../assets/icone/info-circle-solid.svg" height=20 width=20 /></h4>
-                <div class="card-text description">
+                <div class="card-text description d-flex">
                     <p>Vendu par : <a href="../pages/producteurs.html" class="producteur">${this.producteur}</a></p>
-                    <p>Quantite par lot : <a class="lot">${this.tailleLot}</a></p>
                     <p>Prix : <a class="prix">${this.prix}€</a></p>
-                    <p>Catégorie : <a class="categorie">${this.categorie}</a></p>
                 </div>
             </div>`
             let qt = document.createElement("div");
@@ -54,7 +49,7 @@ export class Produit {
         art.getElementsByTagName("h4")[0].addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('modalShowTitle').textContent=this.nom;
-            document.getElementById('modalShowDesc').textContent=this.description;
+            document.getElementById('modalShowDesc').textContent=this.description + " Quantité par lot : " + this.tailleLot;
             document.getElementById('modalShowImg').style.backgroundImage =`url(${this.img})`;
             document.getElementById('modalShowPrice').textContent ="Prix : "+this.prix+"€";
             document.getElementById('modalShowProd').textContent =this.producteur;

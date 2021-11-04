@@ -72,12 +72,22 @@ body {
 }
 .vgr-cards .card-desc {
   flex: 1;
-  padding-top: 4%;
   text-align: justify;
 }
 
 .card-producteur {
   margin-left: 5%;
+}
+
+.card-title {
+  width: 50%;
+}
+
+.card-text :first-child {
+  width: 60%;
+}
+.card-text :nth-child(2) {
+  width: 40%;
 }
 
 /*# sourceMappingURL=card.css.map */
