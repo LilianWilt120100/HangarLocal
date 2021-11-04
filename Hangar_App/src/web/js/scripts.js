@@ -18,7 +18,20 @@ switch (window.location.pathname) {
     case "/Hangar_App/src/web/html/produits.html":
         ajtCarte();
         break;
+    case "/Hangar_App/src/web/index.html":
+        console.log('sal');
+        load();
+        break;
+    
 
     default:
         break;
 }
+
+async function load() {
+    let url = "http://localhost:7272/producteur";
+    let obj = await (await fetch(url)).json();
+    console.log(obj);
+}
+
+
