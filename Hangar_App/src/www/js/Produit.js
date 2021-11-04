@@ -53,7 +53,7 @@ export class Produit {
     info(art){
         art.getElementsByTagName("h4")[0].addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById('modalShowTitle').textContent=this.name;
+            document.getElementById('modalShowTitle').textContent=this.nom;
             document.getElementById('modalShowDesc').textContent=this.description;
             document.getElementById('modalShowImg').style.backgroundImage =`url(${this.img})`;
             document.getElementById('modalShowPrice').textContent ="Prix : "+this.prix+"€";
