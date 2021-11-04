@@ -79,5 +79,23 @@ $app->get('/produit/{id}', function (Request $request, Response $responce, $para
         
 });
 
+$app->get('/produitbyproducteur/{id_producteur}', function (Request $request, Response $responce, $parameters) {
+    $p = new Produit();
+    $id = $parameters['id_producteur'];
+    $p = $p->query()->where('id_producteur','=',$id)->get();
+    $responce->getBody()->write(''.$p);
+    return $responce;
+        
+});
+
+$app->get('/produitbycategorie/{id_categorie}', function (Request $request, Response $responce, $parameters) {
+    $p = new Produit();
+    $id = $parameters['id_categorie'];
+    $p = $p->query()->where('id_categorie','=',$id)->get();
+    $responce->getBody()->write(''.$p);
+    return $responce;
+        
+});
+
 
 $app->run();
