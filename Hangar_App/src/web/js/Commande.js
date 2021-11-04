@@ -39,7 +39,7 @@ function creerCommande() {
     let lCommande =[];
     lCommande.push(new Commande("Marie Charrier", 8.20, false, prod));
     lCommande.push(new Commande("Jeanne", 2.20, false, prod));
-    lCommande.push(new Commande("Marie Charrier", 8.20, false, prod));
+    lCommande.push(new Commande("Nicole ", 5.70, false, prod));
     
     return lCommande;
 }
