@@ -40,4 +40,10 @@ body {
   justify-content: center;
 }
 
+@media (max-width: 600px) {
+  .navbar-nav:nth-child(1) {
+    flex-direction: column !important;
+  }
+}
+
 /*# sourceMappingURL=custom.css.map */

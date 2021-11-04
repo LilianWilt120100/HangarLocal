@@ -15,20 +15,18 @@ export class Produit {
         article.setAttribute("class", "card");
         
         article.innerHTML= `
-            <div class="card-body d-flex">
+            <div class="card-body">
                 <h4 class="card-title" id="info${this.nom}">${this.nom}
                 <img class="me-2" src="../assets/icone/info-circle-solid.svg" height=20 width=20 /></h4>
-                <div class="card-text description d-flex">
-                    <p>Vendu par : <a href="../pages/producteurs.html" class="producteur">${this.producteur}</a></p>
-                    <p>Prix : <a class="prix">${this.prix}€</a></p>
+                <div class="card-text description">
+                    <p>Vendu par : <a href="../html/producteurs.html" class="producteur">${this.producteur}</a></p>
+                    <p>Prix : ${this.prix}€</p>
                 </div>
             </div>`
             let qt = document.createElement("div");
             qt.setAttribute("class", "card-desc");
             qt.innerHTML = `
-                    <label for="quantite">
-                        <input type="number" name="quantite" class="quantite" min="0" value="1">
-                    </label>
+                    <input type="number" name="quantite" class="quantite" min="0" value="1">
                     <a class="btn btn-outline-primary">ajouter au panier</a>`
             this.panier(qt);
             this.info(article);
