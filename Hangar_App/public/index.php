@@ -19,6 +19,7 @@ $db->bootEloquent();
 
 $app = AppFactory::create();
 
+<<<<<<< Updated upstream
 $app->add(new cors());
 
 $app->get('/', function (Request $request, Response $responce, $parameters) {
@@ -26,6 +27,8 @@ $app->get('/', function (Request $request, Response $responce, $parameters) {
     return $responce;
 });
 
+=======
+>>>>>>> Stashed changes
 $app->get('/producteur', function (Request $request, Response $responce, $parameters) {
     $pr = new Producteur();
     $pr = $pr->findById(1);
