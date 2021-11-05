@@ -2,7 +2,7 @@
 
 namespace App\Controls;
 
-use App\Vues\IndexVue;
+use App\Vues\VueAccueil;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -14,4 +14,9 @@ class ControlAccueil {
         $this->container = $container;
     }
 
+    public function afficherIndex(Request $request, Response $responce, Array $parameters) {
+        $vue = new VueAccueil($this->container);
+        $responce->getBody()->write($vue->render($parameters));
+        return $responce;
+    }
 }
