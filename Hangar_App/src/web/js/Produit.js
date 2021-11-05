@@ -52,9 +52,10 @@ export class Produit {
     panier(qt){
         qt.getElementsByTagName("a")[0].addEventListener('click', (e) => {
             e.preventDefault();
-            let v = qt.getElementsByTagName("input")[0].value;
+            let v = parseInt(qt.getElementsByTagName("input")[0].value);
             let total = v * this.prix;
             let panier = window.localStorage.getItem('panier');
+            let keepGoing = true;
                 if (panier != null) {
                     panier = JSON.parse(panier);
                 }else{
@@ -65,11 +66,23 @@ export class Produit {
                     ]
                 }
                 panier[0].montant+=total;
+                for (let i = 1; i < panier.length; i++) {
+                    console.log(panier[i]);
+                    if (panier[i].nom === this.nom) {
+                        console.log("panier contient déja");
+                        panier[i].quantite+=v;
+                        //moche : a changer
+                        keepGoing = false;
+                    }
+                }
 
-                panier.push([{
-                    nom : this.nom,
-                    quantite : v,
-                    prix : total}]);
+                if (keepGoing) {
+                    panier.push({
+                        nom : this.nom,
+                        quantite : v,
+                        prix : total});
+                }
+
                 window.localStorage.setItem('panier',JSON.stringify(panier));
 
             console.log(`Vous avez ajouter au panier ${v} ${this.nom} pour un total de ${total}€`);
@@ -99,7 +112,9 @@ export class Produit {
                     ]
                 }
                 panier[0].montant+=total;
-
+                if (panier.includes(this.nom)) {
+                    console.log("panier contient déja");
+                }
                 panier.push([{
                     nom : this.nom,
                     quantite : v,

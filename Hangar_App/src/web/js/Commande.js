@@ -78,7 +78,7 @@ function getPanier() {
     if (p !=null) {
         p = JSON.parse(p);
         for (let i = 1; i < p.length; i++) {
-            prod.push([p[i][0]['nom'], p[i][0]['quantite'],p[i][0]['prix']]);
+            prod.push([p[i]['nom'], p[i]['quantite'],p[i]['prix']]);
         }
         cmd= new Commande(null,p[0].montant,'non validé', prod);
     }
