@@ -142,7 +142,7 @@ export async function creerProduit(url = "http://localhost:7272/produit") {
     for (let i = 0; i < obj.length; i++) {
         let p = obj[i];
         prod.push(new Produit(p['nom'], p['id_producteur'], p['taille_lot'], p['tarif_unitaire'], p['id_categorie'],
-        p['descritpion'], p['urlImage']));
+        p['description'], p['urlImage']));
         
     }
     return prod;
