@@ -85,28 +85,28 @@ export class Produit {
   }
 
 
-export function creerProduit() {
+export async function creerProduit() {
     let prod = [];
-
-    prod.push(new Produit("Carotte bio au kilo", "Michel", "1Kg", 2.99, "Légume",
-        "carottes oranges", "../assets/img/carotte.png"));
-    prod.push(new Produit("Poivron à l'unités", "prod1", "1", 4, "Légume",
-        "très frais", "../assets/img/poivron.png"));
-    prod.push(new Produit("petit pois", "prod1", "1Kg", 5, "Légume",
-        "Petits pois qui font plaisir", "../assets/img/carotte.png"));
-
+    let url = "http://localhost:7272/produit";
+    let obj = await (await fetch(url)).json();
+    
+    for (let i = 0; i < obj.length; i++) {
+        let p = obj[i];
+        prod.push(new Produit(p['nom'], p['id_producteur'], p['taille_lot'], p['tarif_unitaire'], p['id_categorie'],
+        p['descritpion'], p['urlImage']));
+        
+    }
     return prod;
 }
-export function ajtCarte() {
-    let prod= creerProduit();
+export async function ajtCarte() {
+    let prod= await creerProduit();
     let body = document.getElementsByClassName("card-group")[0];
     prod.forEach(produit => {
         body.appendChild(produit.toHTML())
     });
 }
-export function ajtListe() {
-    console.log("sah");
-    let prod= creerProduit();
+export async function ajtListe() {
+    let prod= await creerProduit();
     let liste = document.getElementById("listProduits");
     prod.forEach(produit => {
         liste.appendChild(produit.toProduct());

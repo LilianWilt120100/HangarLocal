@@ -1,5 +1,9 @@
-import { ajtListe, ajtCarte } from "./Produit.js";
+import { ajtListe, ajtCarte as ajtCarteProduit} from "./Produit.js";
 import { ajtCommande } from "./Commande.js";
+import { ajtCarte as ajtCarteProducteur } from "./Producteur.js";
+
+
+const SERVEUR_URL = "http://localhost:7272";
 
 
 //close les modal
@@ -17,24 +21,21 @@ switch (window.location.pathname) {
         ajtListe();
         break;
     case "/Hangar_App/src/web/html/produits.html":
-        ajtCarte();
+        ajtCarteProduit();
         break;
-    case "/Hangar_App/src/web/html/produits.html":
-        ajtCarte();
+    case "/Hangar_App/src/web/html/producteurs.html":
+        ajtCarteProducteur();
         break;
     case "/Hangar_App/src/web/html/mesCommandes.html":
         ajtCommande();
         break;
-    
+    case "/Hangar_App/src/web/html/mesCommandes.html":
+        //ajtCommande();
+        break;
 
     default:
         break;
 }
 
-async function load() {
-    let url = "http://localhost:7272/producteur";
-    let obj = await (await fetch(url)).json();
-    console.log(obj);
-}
 
 

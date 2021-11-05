@@ -34,21 +34,32 @@ export class Commande {
   }
 
 
-function creerCommande() {
-    let prod = creerProduit();
+export async function creerCommandes() {
+    //TODO route quantite
+    let prod = await creerProduit();
     let lCommande =[];
-    lCommande.push(new Commande("Marie Charrier", 8.20, false, prod));
-    lCommande.push(new Commande("Jeanne", 2.20, false, prod));
-    lCommande.push(new Commande("Nicole ", 5.70, false, prod));
+    let url = "http://localhost:7272/commande";
+    let obj = await (await fetch(url)).json();
+    
+    for (let i = 0; i < obj.length; i++) {
+        let c = obj[i];
+        lCommande.push(new Commande(c['nom_client'],c['montant'],c['etat']), prod);
+        
+    }
     
     return lCommande;
 }
 
-export function ajtCommande() {
+export async function ajtCommande() {
     console.log("commande en cour de gen");
-    let commande= creerCommande();
+    let commande= await creerCommandes();
     let liste = document.getElementById("listProduits");
-    commande.forEach(cmd => {
-        liste.appendChild(cmd.infoCommande());
-    });
+    try {
+        commande.forEach(cmd => {
+            liste.appendChild(cmd.infoCommande());
+        });
+    } catch (error) {
+        
+    }
+
 }

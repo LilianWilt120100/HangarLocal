@@ -107,6 +107,8 @@ CREATE TABLE `produit` (
 
 INSERT INTO `produit` (`id`, `nom`, `description`, `urlImage`, `taille_lot`, `tarif_unitaire`, `id_producteur`, `id_categorie`) VALUES
 (1, 'carotte', 'grosse', 'http://localhost/phpmyadmin/themes/pmahomme/img/logo_left.png', '1 kg', 2.5, 1, 1);
+INSERT INTO `produit` (`nom`, `description`, `urlImage`, `taille_lot`, `tarif_unitaire`, `id_producteur`, `id_categorie`)
+VALUES ('Poivron à l unités', 'très frais', '../assets/img/poivron.png', '1', '4', '1', '1');
 
 -- --------------------------------------------------------
 

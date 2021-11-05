@@ -45,15 +45,24 @@ export class Producteur {
     
   }
 
-
-let prod = [];
-
-let body = document.getElementsByClassName("card-group")[0];
-prod.push(new Producteur("Jean Michel", "2 rue de la gare", "jm2@mail.Fr", "../assets/img/michel.png"));
-prod.push(new Producteur("Jean Claude", "2 rue de la gare", "jm2@mail.Fr", "../assets/img/michel.png"));
-prod.push(new Producteur("Jean Charles", "2 rue de la gare", "jm2@mail.Fr", "../assets/img/michel.png"));
-prod.push(new Producteur("Jean Eudes", "2 rue de la gare", "jm2@mail.Fr", "../assets/img/michel.png"));
-
-prod.forEach(producteur => {
-    body.appendChild(producteur.toHTML())
-});
+  
+export async function creerProducteur() {
+    let prod = [];
+    let url = "http://localhost:7272/producteur";
+    let obj = await (await fetch(url)).json();
+    
+    for (let i = 0; i < obj.length; i++) {
+        let p = obj[i];
+        prod.push(new Producteur(p['nom'], p['localisation'], p['mail'], p['urlImage']));
+        
+    }
+    return prod;
+}
+export async function ajtCarte() {
+    let prod= await creerProducteur();
+    let cardGroup = document.getElementsByClassName("card-group")[0];
+    
+    prod.forEach(producteur => {
+        cardGroup.appendChild(producteur.toHTML())
+    });
+}
