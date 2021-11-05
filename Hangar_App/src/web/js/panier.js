@@ -3,14 +3,14 @@ import { postPanier } from "./Commande.js";
 
 document.getElementById('validCmd').addEventListener('click', (e) => {
     e.preventDefault();
-    let modal = document.getElementById('La tu met l id de ta modal');
+    let modal = document.getElementById('modalShow');
     modal.classList.remove('d-none');
     modal.classList.add('show');
     
 })
 
 
-document.getElementById('validCmd').addEventListener('click', (e) => {
+document.getElementById('popup_submit').addEventListener('click', (e) => {
     e.preventDefault();
     let montant = document.getElementById('montantTotal').textContent;
     let nom_client='a recup dans modal';
