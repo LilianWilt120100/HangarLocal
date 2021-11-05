@@ -10,7 +10,7 @@ document.getElementById('validCmd').addEventListener('click', (e) => {
 })
 
 
-document.getElementById('La tu met lid du bouton valider de ta modal').addEventListener('click', (e) => {
+document.getElementById('validCmd').addEventListener('click', (e) => {
     e.preventDefault();
     let montant = document.getElementById('montantTotal').textContent;
     let nom_client='a recup dans modal';

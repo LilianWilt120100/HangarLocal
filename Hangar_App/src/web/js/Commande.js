@@ -102,7 +102,7 @@ export function ajtPanier() {
 }
 
 export async function postPanier(nom_client, mail_client, tel_client, montant, etat, lieu_retrait) {
-    let url = "http://localhost:7272/commande";
+    let url = "http://localhost:7272/commandefromclient";
     let data = {
         nom_client : nom_client ,  
         mail_client : mail_client ,  
