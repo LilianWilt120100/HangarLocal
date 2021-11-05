@@ -75,7 +75,8 @@ CREATE TABLE `producteur` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `localisation` varchar(100) NOT NULL,
-  `mail` varchar(50) NOT NULL
+  `mail` varchar(50) NOT NULL,
+  `urlImage` varchar(250) NULL;
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -83,8 +84,8 @@ CREATE TABLE `producteur` (
 --
 
 INSERT INTO `producteur` (`id`, `nom`, `localisation`, `mail`) VALUES
-(1, 'Jean Michel deut', '22 rue de la Gare', 'jm2@mail.fr'),
-(2, 'abc', 'test', 'i@o.com');
+(1, 'Jean Michel deut', '22 rue de la Gare', 'jm2@mail.fr','../assets/img/michel.png'),
+(2, 'abc', 'test', 'i@o.com', '../assets/img/michel.png');
 
 -- --------------------------------------------------------
 

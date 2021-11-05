@@ -89,9 +89,9 @@ export async function ajtCommande() {
     console.log("commande en cour de gen");
     let commande= await creerCommandes();
     let liste = document.getElementById("listProduits");
-
+    console.log(commande);
     commande.forEach(cmd => {
-        liste.appendChild(cmd.infoPanier());
+        liste.appendChild(cmd.infoCommande());
     });
 }
 
