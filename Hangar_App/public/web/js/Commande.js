@@ -102,27 +102,31 @@ export function ajtPanier() {
     liste.appendChild(p.infoPanier(p));
 }
 
-export async function postPanier(nom_client, mail_client, tel_client, montant, etat, lieu_retrait) {
-    let url = config.webetu_url+"/commandefromclient";
+export async function postPanier(nom_client, mail_client, tel_client, montant, lieu_retrait) {
+    let url = config.webetu_url+"/commandefromclient/"+nom_client+"/"+mail_client+"/"+tel_client+"/"+montant+"/"+lieu_retrait;
     let data = {
         nom_client : nom_client ,  
         mail_client : mail_client ,  
         tel_client : tel_client,
-        montant : montant,  
-        etat : etat,
+        montant : montant,
         lieu_retrait : lieu_retrait 
     }
     // request options
     const options = {
         method: 'POST',
         body: JSON.stringify(data),
+        mode : 'no-cors',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin':'*',
         }
     }
 
     // send POST request
-    fetch(url, options)
-        .then(res => res.json())
-        .then(res => console.log(res));
+    //let obj = awit fetch ?
+    fetch(url, options);
+
+    document.querySelector('#modalShow').classList.remove('show');
+    document.querySelector('#modalShow').classList.add('d-none');
+
 }

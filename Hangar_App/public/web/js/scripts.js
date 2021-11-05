@@ -32,19 +32,24 @@ export async function getSetCategorie() {
 }
 
 switch (window.location.pathname) {
+    case "/public/web/html/mesProduits.html":
     case "/~franco377u/hangarLocal/client/src/web/html/mesProduits.html":
         ajtListe();
         break;
+    case "/public/web/html/produits.html":
     case "/~franco377u/hangarLocal/client/src/web/html/produits.html":
         getSetCategorie();
         ajtCarteProduit();
         break;
+    case "/public/web/html/producteurs.html":
     case "/~franco377u/hangarLocal/client/src/web/html/producteurs.html":
         ajtCarteProducteur();
         break;
+    case "/public/web/html/mesCommandes.html":
     case "/~franco377u/hangarLocal/client/src/web/html/mesCommandes.html":
         ajtCommande();
         break;
+    case "/public/web/html/monProfil.html":
     case "/~franco377u/hangarLocal/client/src/web/html/monProfil.html":
         let cu =window.localStorage.getItem("currentUser");
         //if !connecté
@@ -56,12 +61,13 @@ switch (window.location.pathname) {
         window.localStorage
         //ajtCommande();
         break;
+    case "/public/web/html/panier.html":
     case "/~franco377u/hangarLocal/client/src/web/html/panier.html":
         ajtPanier();
         break;
 
     default:
-    console.log(window.location.pathname);
+        console.log(window.location.pathname);
     
         break;
 }

@@ -120,7 +120,11 @@ $app->post($enProd.'commandefromclient/{nom_client}/{mail_client}/{tel_client}/{
     $c->lieu_retrait = $parameters['lieu_retrait'];
     $c->save();
     $responce->getBody()->write('enregistrement ok');
-    return $responce;
+    return $responce
+    ->withHeader('Access-Control-Allow-Origin', 'https://webetu.iutnc.univ-lorraine.fr')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    ;
 });
 
 
