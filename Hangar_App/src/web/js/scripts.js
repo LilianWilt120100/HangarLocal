@@ -30,7 +30,7 @@ export async function getSetCategorie() {
         lCat.appendChild(ca);  
     }
     
-    return lCommande;
+    return lCat;
 }
 
 

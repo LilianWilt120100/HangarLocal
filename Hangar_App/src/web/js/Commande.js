@@ -30,7 +30,7 @@ export class Commande {
             tr.innerHTML= `
                 <td>${prod[0]}</td>
                 <td>${prod[1]}</td>
-                <td>${prod[2]}€</td>`
+                <td>${prod[1] * prod[2]}€</td>`
             list.appendChild(tr);
         });
         let tr = document.createElement("tr");
