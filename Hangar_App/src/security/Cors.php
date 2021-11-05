@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Cors;
+namespace App\Security;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;

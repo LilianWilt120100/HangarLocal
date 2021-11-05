@@ -10,7 +10,7 @@ use App\Models\Categorie;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Illuminate\Database\Capsule\Manager as Capsule;
-use App\Cors\cors;
+use App\Security\Cors;
 
 require '../vendor/autoload.php';
 
@@ -22,7 +22,7 @@ $db->bootEloquent();
 
 $app = AppFactory::create();
 
-$app->add(new cors());
+$app->add(new Cors());
 
 $app->get('/', function (Request $request, Response $responce, $parameters) {
     $responce->getBody()->write(' Hello World !');
@@ -98,6 +98,21 @@ $app->get('/produitbycategorie/{id_categorie}', function (Request $request, Resp
     $id = $parameters['id_categorie'];
     $p = $p->query()->where('id_categorie','=',$id)->get();
     $responce->getBody()->write(''.$p);
+    return $responce;
+        
+});
+
+$app->post('/commandefromclient/{nom_client}/{mail_client}/{tel_client}/{montant}/{lieu_retrait}', function (Request $request, Response $responce, $parameters) {
+    $c = new Commande();
+    //$c->id=$parameters['id'];
+    $c->nom_client=$parameters['nom_client'];
+    $c->mail_client=$parameters['mail_client'];
+    $c->tel_client=$parameters['tel_client'];
+    $c->montant=$parameters['montant'];
+    $c->etat='en cours';
+    $c->lieu_retrait=$parameters['lieu_retrait'];
+    $c->save();
+    $responce->getBody()->write('enregistrement ok');
     return $responce;
         
 });
