@@ -3,3 +3,4 @@
 Hangar_App/config/config.ini
 *.ini
 Hangar_App/config/config.ini
+Hangar_App/database/*

@@ -24,7 +24,7 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         volumes :
-            - ./databases/schema/createdatabase.sql:/docker-entrypoint-initdb.d/createdatabase.sql
+            - ./database/schema/createdatabase.sql:/docker-entrypoint-initdb.d/createdatabase.sql
             - ./database/data:/var/lib/mysql
         ports:
             - "9906:3306"
