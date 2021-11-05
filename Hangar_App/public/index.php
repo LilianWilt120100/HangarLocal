@@ -6,6 +6,7 @@ use Slim\Factory\AppFactory;
 use App\Models\Producteur;
 use App\Models\Commande;
 use App\Models\Produit;
+use App\Models\Categorie;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -61,6 +62,13 @@ $app->get('/commande/{id}', function (Request $request, Response $responce, $par
 
 $app->get('/produit', function (Request $request, Response $responce, $parameters) {
     $p = new Produit();
+    $p = $p->all();
+    $responce->getBody()->write(''.$p);
+    return $responce;
+        
+});
+$app->get('/categorie', function (Request $request, Response $responce, $parameters) {
+    $p = new Categorie();
     $p = $p->all();
     $responce->getBody()->write(''.$p);
     return $responce;
