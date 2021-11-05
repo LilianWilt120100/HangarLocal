@@ -12,13 +12,16 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use App\Security\Cors;
 
-require '../vendor/autoload.php';
+require __DIR__ .'/../vendor/autoload.php';
 
 
 $db = new Capsule();
 $db->addConnection(parse_ini_file('../config/config.ini'));
 $db->setAsGlobal();
 $db->bootEloquent();
+$enProd="/";
+//Décommanter cette ligne quand on push sur webetu (oui je sais c'est moche)
+//$enProd="/www/franco377u/hangarLocal/Hangar_App/public/";
 
 $app = AppFactory::create();
 
@@ -28,8 +31,12 @@ $app->get('/', function (Request $request, Response $responce, $parameters) {
     $responce->getBody()->write(' Hello World !');
     return $responce;
 });
+$app->get('/www/franco377u/hangarLocal/Hangar_App/public/', function (Request $request, Response $responce, $parameters) {
+   $responce->getBody()->write(' Hello webetu');
+    return $responce;
+});
 
-$app->get('/producteur', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'producteur', function (Request $request, Response $responce, $parameters) {
     $pr = new Producteur();
     $pr = $pr->all();
     $responce->getBody()->write(''.$pr);
@@ -37,7 +44,7 @@ $app->get('/producteur', function (Request $request, Response $responce, $parame
         
 });
 
-$app->get('/producteur/{name}', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'producteur/{name}', function (Request $request, Response $responce, $parameters) {
     $pr = new Producteur();
     $name = $parameters['name'];
     $pr = $pr->findByName($name);
@@ -45,14 +52,14 @@ $app->get('/producteur/{name}', function (Request $request, Response $responce, 
     return $responce;     
 });
 
-$app->get('/commande', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'commande', function (Request $request, Response $responce, $parameters) {
     $c = new Commande();
     $c = $c->all();
     $responce->getBody()->write(''.$c);
     return $responce; 
 });
 
-$app->get('/commande/{id}', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'commande/{id}', function (Request $request, Response $responce, $parameters) {
     $c = new Commande();
     $id = $parameters['id'];
     $c = $c->findById($id);
@@ -60,14 +67,14 @@ $app->get('/commande/{id}', function (Request $request, Response $responce, $par
     return $responce;
 });
 
-$app->get('/produit', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'produit', function (Request $request, Response $responce, $parameters) {
     $p = new Produit();
     $p = $p->all();
     $responce->getBody()->write(''.$p);
     return $responce;
         
 });
-$app->get('/categorie', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'categorie', function (Request $request, Response $responce, $parameters) {
     $p = new Categorie();
     $p = $p->all();
     $responce->getBody()->write(''.$p);
@@ -75,7 +82,7 @@ $app->get('/categorie', function (Request $request, Response $responce, $paramet
         
 });
 
-$app->get('/produit/{id}', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'produit/{id}', function (Request $request, Response $responce, $parameters) {
     $p = new Produit();
     $id = $parameters['id'];
     $p = $p->findById($id);
@@ -84,7 +91,7 @@ $app->get('/produit/{id}', function (Request $request, Response $responce, $para
         
 });
 
-$app->get('/produitbyproducteur/{id_producteur}', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'produitbyproducteur/{id_producteur}', function (Request $request, Response $responce, $parameters) {
     $p = new Produit();
     $id = $parameters['id_producteur'];
     $p = $p->query()->where('id_producteur','=',$id)->get();
@@ -93,7 +100,7 @@ $app->get('/produitbyproducteur/{id_producteur}', function (Request $request, Re
         
 });
 
-$app->get('/produitbycategorie/{id_categorie}', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'produitbycategorie/{id_categorie}', function (Request $request, Response $responce, $parameters) {
     $p = new Produit();
     $id = $parameters['id_categorie'];
     $p = $p->query()->where('id_categorie','=',$id)->get();
@@ -102,7 +109,7 @@ $app->get('/produitbycategorie/{id_categorie}', function (Request $request, Resp
         
 });
 
-$app->post('/commandefromclient/{nom_client}/{mail_client}/{tel_client}/{montant}/{lieu_retrait}', function (Request $request, Response $responce, $parameters) {
+$app->post($enProd.'commandefromclient/{nom_client}/{mail_client}/{tel_client}/{montant}/{lieu_retrait}', function (Request $request, Response $responce, $parameters) {
     $c = new Commande();
     //$c->id=$parameters['id'];
     $c->nom_client=$parameters['nom_client'];
