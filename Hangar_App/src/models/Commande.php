@@ -4,7 +4,7 @@ namespace App\Models;
 use \Illuminate\Database\Eloquent\Model ;
 
 class Commande extends Model {
- protected $table='Commande';
+ protected $table='commande';
  protected $primaryKey='id';
  
  public $timestamps = false ;

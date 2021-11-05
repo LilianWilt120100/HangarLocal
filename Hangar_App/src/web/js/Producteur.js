@@ -1,3 +1,4 @@
+import config from './config.js';
 
 export class Producteur {
     constructor(nom, localisation, mail, img) {
@@ -48,7 +49,7 @@ export class Producteur {
   
 export async function creerProducteur() {
     let prod = [];
-    let url = "http://localhost:7272/producteur";
+    let url = config.webetu_url+"/producteur";
     let obj = await (await fetch(url)).json();
     
     for (let i = 0; i < obj.length; i++) {
@@ -59,7 +60,7 @@ export async function creerProducteur() {
     return prod;
 }
 export async function getProducteur(name) {
-    let url = "http://localhost:7272/producteur/"+name;
+    let url = config.webetu_url+"/producteur/"+name;
     let obj = await (await fetch(url)).json();
     return new Producteur(obj['nom'], obj['localisation'], obj['mail'], obj['urlImage'])
 }

@@ -1,4 +1,5 @@
 import { Produit, creerProduit } from "./Produit.js";
+import config from "./config.js";
 export class Commande {
     constructor(Client, prix, livré, lProduit) {
         //TODO test integrité des types
@@ -59,7 +60,7 @@ export async function creerCommandes() {
     //TODO route quantite
     let prod = await creerProduit();
     let lCommande =[];
-    let url = "http://localhost:7272/commande";
+    let url = config.webetu_url+"/commande";
     let obj = await (await fetch(url)).json();
     
     for (let i = 0; i < obj.length; i++) {
@@ -102,7 +103,7 @@ export function ajtPanier() {
 }
 
 export async function postPanier(nom_client, mail_client, tel_client, montant, etat, lieu_retrait) {
-    let url = "http://localhost:7272/commandefromclient";
+    let url = config.webetu_url+"/commandefromclient";
     let data = {
         nom_client : nom_client ,  
         mail_client : mail_client ,  

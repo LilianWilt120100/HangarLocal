@@ -6,7 +6,7 @@ use \Illuminate\Database\Eloquent\Model ;
 
 class Producteur extends Model {
    
-   protected $table='Producteur';
+   protected $table='producteur';
    protected $primaryKey='id';
    public $timestamps = false ;
    protected $fillable = ['nom', 'localisation', 'mail'];

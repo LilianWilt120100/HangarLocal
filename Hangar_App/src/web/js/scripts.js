@@ -1,9 +1,7 @@
 import { ajtListe, ajtCarte as ajtCarteProduit} from "./Produit.js";
 import { ajtCommande, ajtPanier } from "./Commande.js";
 import { ajtCarte as ajtCarteProducteur, ajtProfil, getProducteur } from "./Producteur.js";
-
-
-const SERVEUR_URL = "http://localhost:7272";
+import config from './config.js';
 
 
 //close les modal
@@ -17,7 +15,7 @@ Array.prototype.forEach.call(close, function (el) {
 });
 
 export async function getSetCategorie() {
-    let url = "http://localhost:7272/categorie";
+    let url = config.webetu_url+"/categorie";
     let obj = await (await fetch(url)).json();
     let lCat = document.getElementById('caTabs');
 
@@ -33,22 +31,21 @@ export async function getSetCategorie() {
     return lCat;
 }
 
-
 switch (window.location.pathname) {
-    case "/Hangar_App/src/web/html/mesProduits.html":
+    case "/~franco377u/hangarLocal/client/src/web/html/mesProduits.html":
         ajtListe();
         break;
-    case "/Hangar_App/src/web/html/produits.html":
+    case "/~franco377u/hangarLocal/client/src/web/html/produits.html":
         getSetCategorie();
         ajtCarteProduit();
         break;
-    case "/Hangar_App/src/web/html/producteurs.html":
+    case "/~franco377u/hangarLocal/client/src/web/html/producteurs.html":
         ajtCarteProducteur();
         break;
-    case "/Hangar_App/src/web/html/mesCommandes.html":
+    case "/~franco377u/hangarLocal/client/src/web/html/mesCommandes.html":
         ajtCommande();
         break;
-    case "/Hangar_App/src/web/html/monProfil.html":
+    case "/~franco377u/hangarLocal/client/src/web/html/monProfil.html":
         let cu =window.localStorage.getItem("currentUser");
         //if !connecté
         if (cu ===null) {
@@ -59,11 +56,13 @@ switch (window.location.pathname) {
         window.localStorage
         //ajtCommande();
         break;
-    case "/Hangar_App/src/web/html/panier.html":
+    case "/~franco377u/hangarLocal/client/src/web/html/panier.html":
         ajtPanier();
         break;
 
     default:
+    console.log(window.location.pathname);
+    
         break;
 }
 

@@ -1,3 +1,4 @@
+import config from './config.js';
 
 export class Produit {
     constructor(nom, producteur, tailleLot, prix, categorie, description, img) {
@@ -135,7 +136,7 @@ export class Produit {
   }
 
 
-export async function creerProduit(url = "http://localhost:7272/produit") {
+export async function creerProduit(url = config.webetu_url+"/produit") {
     let prod = [];
     let obj = await (await fetch(url)).json();
     
@@ -149,7 +150,7 @@ export async function creerProduit(url = "http://localhost:7272/produit") {
 }
 export async function creerProduitByCat(categorie) {
     let prod = [];
-    let url = "http://localhost:7272/produit/"+categorie;
+    let url = config.webetu_url+"/produit/"+categorie;
     //TODO
     return creerProduit(url)
 }
