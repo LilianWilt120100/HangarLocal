@@ -1,6 +1,6 @@
 import { ajtListe, ajtCarte as ajtCarteProduit} from "./Produit.js";
 import { ajtCommande } from "./Commande.js";
-import { ajtCarte as ajtCarteProducteur } from "./Producteur.js";
+import { ajtCarte as ajtCarteProducteur, ajtProfil, getProducteur } from "./Producteur.js";
 
 
 const SERVEUR_URL = "http://localhost:7272";
@@ -29,7 +29,15 @@ switch (window.location.pathname) {
     case "/Hangar_App/src/web/html/mesCommandes.html":
         ajtCommande();
         break;
-    case "/Hangar_App/src/web/html/mesCommandes.html":
+    case "/Hangar_App/src/web/html/monProfil.html":
+        let cu =window.localStorage.getItem("currentUser");
+        //if !connecté
+        if (cu ===null) {
+            window.location.href="../html/espaceProducteur.html"
+        } else {
+            ajtProfil(cu)
+        }
+        window.localStorage
         //ajtCommande();
         break;
 

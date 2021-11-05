@@ -15,6 +15,10 @@ class Producteur extends Model {
       return Producteur::where('id', '=', $id)->firstOrFail();
    }
 
+   public static function findByName($name) : Producteur {
+      return Producteur::where('nom', '=', $name)->firstOrFail();
+   }
+
    public function produit() {
       return $this->hasMany('Produit','id_produit');
    }

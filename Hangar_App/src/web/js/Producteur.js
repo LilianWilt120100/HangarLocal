@@ -58,6 +58,12 @@ export async function creerProducteur() {
     }
     return prod;
 }
+export async function getProducteur(name) {
+    let url = "http://localhost:7272/producteur/"+name;
+    let obj = await (await fetch(url)).json();
+    return new Producteur(obj['nom'], obj['localisation'], obj['mail'], obj['urlImage'])
+}
+
 export async function ajtCarte() {
     let prod= await creerProducteur();
     let cardGroup = document.getElementsByClassName("card-group")[0];
@@ -65,4 +71,12 @@ export async function ajtCarte() {
     prod.forEach(producteur => {
         cardGroup.appendChild(producteur.toHTML())
     });
+}
+
+export async function ajtProfil(name) {
+    let container = document.getElementById("content");
+    let p = await getProducteur(name);
+    console.log(p);
+    container.appendChild(p.toHTML());
+
 }

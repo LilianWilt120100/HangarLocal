@@ -3,6 +3,7 @@ document.getElementById("formLogin").addEventListener('submit', (e) => {
     let log = document.getElementById('login').value;
     let pass = document.getElementById('pass').value;
     if (verifierLogin(log, pass)) {
+        window.localStorage.setItem("currentUser",log);
         window.location.href='./mesProduits.html?login='+log;
     } else {
         //TODO message d'erreur propre
@@ -12,5 +13,6 @@ document.getElementById("formLogin").addEventListener('submit', (e) => {
 })
 
 function verifierLogin(login, pass) {
-    return login==='login' && pass==='pass';
+    //return login==='login' && pass==='pass';
+    return pass==='pass';
 }

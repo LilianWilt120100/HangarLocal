@@ -85,9 +85,8 @@ export class Produit {
   }
 
 
-export async function creerProduit() {
+export async function creerProduit(url = "http://localhost:7272/produit") {
     let prod = [];
-    let url = "http://localhost:7272/produit";
     let obj = await (await fetch(url)).json();
     
     for (let i = 0; i < obj.length; i++) {
@@ -98,8 +97,21 @@ export async function creerProduit() {
     }
     return prod;
 }
+export async function creerProduitByCat(categorie) {
+    let prod = [];
+    let url = "http://localhost:7272/produit/"+categorie;
+    //TODO
+    return creerProduit(url)
+}
 export async function ajtCarte() {
     let prod= await creerProduit();
+    let body = document.getElementsByClassName("card-group")[0];
+    prod.forEach(produit => {
+        body.appendChild(produit.toHTML())
+    });
+}
+export async function ajtCarteByCat(categorie) {
+    let prod= await creerProduitByCat(categorie);
     let body = document.getElementsByClassName("card-group")[0];
     prod.forEach(produit => {
         body.appendChild(produit.toHTML())

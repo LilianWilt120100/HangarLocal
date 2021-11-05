@@ -149,7 +149,8 @@ ALTER TABLE `commande`
 -- Index pour la table `producteur`
 --
 ALTER TABLE `producteur`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE `login` (`nom`);
 
 --
 -- Index pour la table `produit`

@@ -36,10 +36,10 @@ $app->get('/producteur', function (Request $request, Response $responce, $parame
         
 });
 
-$app->get('/producteur/{id}', function (Request $request, Response $responce, $parameters) {
+$app->get('/producteur/{name}', function (Request $request, Response $responce, $parameters) {
     $pr = new Producteur();
-    $id = $parameters['id'];
-    $pr = $pr->findById($id);
+    $name = $parameters['name'];
+    $pr = $pr->findByName($name);
     $responce->getBody()->write(''.$pr);
     return $responce;
         
