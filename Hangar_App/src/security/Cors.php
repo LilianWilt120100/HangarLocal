@@ -6,8 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 
-class cors
-{
+class Cors {
     /**
      * Check if the user is not logged in to continue
      *

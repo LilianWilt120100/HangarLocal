@@ -41,16 +41,14 @@ $app->get('/producteur/{name}', function (Request $request, Response $responce, 
     $name = $parameters['name'];
     $pr = $pr->findByName($name);
     $responce->getBody()->write(''.$pr);
-    return $responce;
-        
+    return $responce;     
 });
 
 $app->get('/commande', function (Request $request, Response $responce, $parameters) {
     $c = new Commande();
     $c = $c->all();
     $responce->getBody()->write(''.$c);
-    return $responce;
-        
+    return $responce; 
 });
 
 $app->get('/commande/{id}', function (Request $request, Response $responce, $parameters) {
@@ -59,7 +57,6 @@ $app->get('/commande/{id}', function (Request $request, Response $responce, $par
     $c = $c->findById($id);
     $responce->getBody()->write(''.$c);
     return $responce;
-        
 });
 
 $app->get('/produit', function (Request $request, Response $responce, $parameters) {
