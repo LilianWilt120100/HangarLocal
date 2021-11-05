@@ -22,24 +22,23 @@ export class Commande {
             </div>`
         return tr;
     }
-    infoPanier() {
+    infoPanier(p) {
         let list = document.createDocumentFragment();
-        this.lProduit.forEach(prod => {
+        p.lProduit.forEach(prod => {
+ 
             let tr = document.createElement("tr");
-            console.log(this.Client);
             tr.innerHTML= `
-                <td>${prod.nom}</td>
-                <td>${prod.quantite}€</td>
-                <td>${prod.prix}€</td>`
+                <td>${prod[0]}</td>
+                <td>${prod[1]}</td>
+                <td>${prod[2]}€</td>`
             list.appendChild(tr);
         });
         let tr = document.createElement("tr");
         //tr.setAttribute(class)
-        console.log(this.Client);
         tr.innerHTML= `
             <th scope="col">Total</th>
             <th scope="col"></th>
-            <th scope="col">${this.prix}€</th>`
+            <th scope="col">${p.prix}€</th>`
         list.appendChild(tr);
 
         return list;
@@ -72,6 +71,20 @@ export async function creerCommandes() {
     return lCommande;
 }
 
+function getPanier() {
+    let p = window.localStorage.getItem('panier');
+    let prod = [];
+    let cmd =new Commande();
+    if (p !=null) {
+        p = JSON.parse(p);
+        for (let i = 1; i < p.length; i++) {
+            prod.push([p[i][0]['nom'], p[i][0]['quantite'],p[i][0]['prix']]);
+        }
+        cmd= new Commande(null,p[0].montant,'non validé', prod);
+    }
+    return cmd;
+}
+
 export async function ajtCommande() {
     console.log("commande en cour de gen");
     let commande= await creerCommandes();
@@ -80,4 +93,10 @@ export async function ajtCommande() {
     commande.forEach(cmd => {
         liste.appendChild(cmd.infoPanier());
     });
+}
+
+export function ajtPanier() {
+    let p= getPanier();
+    let liste = document.getElementById("listProduits");
+    liste.appendChild(p.infoPanier(p));
 }

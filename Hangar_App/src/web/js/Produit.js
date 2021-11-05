@@ -54,6 +54,24 @@ export class Produit {
             e.preventDefault();
             let v = qt.getElementsByTagName("input")[0].value;
             let total = v * this.prix;
+            let panier = window.localStorage.getItem('panier');
+                if (panier != null) {
+                    panier = JSON.parse(panier);
+                }else{
+                    panier = [
+                    {
+                        montant: 0
+                    }
+                    ]
+                }
+                panier[0].montant+=total;
+
+                panier.push([{
+                    nom : this.nom,
+                    quantite : v,
+                    prix : total}]);
+                window.localStorage.setItem('panier',JSON.stringify(panier));
+
             console.log(`Vous avez ajouter au panier ${v} ${this.nom} pour un total de ${total}€`);
         
         })
@@ -70,8 +88,25 @@ export class Produit {
                 e.preventDefault();
                 let v = document.getElementById('modalShowGetQuantity').value;
                 let total = v * this.prix;
-                console.log(`Vous avez ajouter au panier ${v} ${this.nom} pour un total de ${total}€`);
-            
+                let panier = window.localStorage.getItem('panier');
+                if (panier != null) {
+                    panier = JSON.parse(panier);
+                }else{
+                    panier = [
+                    {
+                        montant: 0
+                    }
+                    ]
+                }
+                panier[0].montant+=total;
+
+                panier.push([{
+                    nom : this.nom,
+                    quantite : v,
+                    prix : total}]);
+                window.localStorage.setItem('panier',JSON.stringify(panier));
+                //console.log(`Vous avez ajouter au panier ${v} ${this.nom} pour un total de ${total}€`);
+                
             })
             
             

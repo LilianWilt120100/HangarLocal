@@ -1,5 +1,5 @@
 import { ajtListe, ajtCarte as ajtCarteProduit} from "./Produit.js";
-import { ajtCommande } from "./Commande.js";
+import { ajtCommande, ajtPanier } from "./Commande.js";
 import { ajtCarte as ajtCarteProducteur, ajtProfil, getProducteur } from "./Producteur.js";
 
 
@@ -41,7 +41,7 @@ switch (window.location.pathname) {
         //ajtCommande();
         break;
     case "/Hangar_App/src/web/html/panier.html":
-        ajtCommande();
+        ajtPanier();
         break;
 
     default:
