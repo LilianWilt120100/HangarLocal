@@ -58,21 +58,40 @@
         </section>
 
         <div id="modalShow" class="modal fade d-block bg-opaque d-none">
-            <div id="modalShowSec" class="modal-dialog-centered">
-                <div id="modalShowContent" class="modal-content d-flex">
-                    <button type="button" class="btn close ">
-                        &times;
-                    </button>
-                    <form action="" class="m-3">
-                        <label for="client_lastname">nom : </label>
-                        <input type="text" name="client_lastname" id="client_lastname">
-                        <label for="client_firstname">prénom : </label>
-                        <input type="text" name="client_firstname" id="client_firstname">
-                        <label for="client_mail">adresse mail : </label>
-                        <input type="text" name="client_mail" id="client_mail">
-                        <label for="client_tel">numéro de téléphone : </label>
-                        <input type="text" name="client_tel" id="client_tel">
-                        <button id="popup_submit" type="submit" class="btn btn-outline-primary">valider</button>
+            <div id="modalShowSec" class="modal-dialog modal-m modal-dialog-centered">
+                <div id="modalShowContent" class="modal-content text-center">
+                    <form action="" class="m-3 d-grid">
+                        <div class="row p-2">
+                            <label class="col mx-1" for="client_lastname">nom : </label>
+                            <input class="col mx-1" type="text" name="client_lastname" id="client_lastname">
+                        </div>
+                        <div class="row p-2">
+                            <label class="col mx-1" for="client_firstname">prénom : </label>
+                            <input class="col mx-1" type="text" name="client_firstname" id="client_firstname">
+                        </div>
+                        <div class="row p-2">
+                            <label class="col mx-1" for="client_mail">adresse mail : </label>
+                            <input class="col mx-1" type="email" name="client_mail" id="client_mail">
+                        </div>
+                        <div class="row p-2">
+                            <label class="col mx-1" for="client_tel">numéro de téléphone : </label>
+                            <input class="col mx-1" type="tel" name="client_tel" id="client_tel">
+                        </div>
+                        <div class="row p-2">
+                            <label class="col mx-1" for="client_retrait">lieu de retrait : </label>
+                            <input list="lieu" class="col mx-1" type="tel" name="client_retrait" id="client_retrait">
+                            <datalist id="lieu">
+                                <option value="Nancy">
+                                <option value="Metz">
+                                <option value="Epinal">
+                                <option value="Verdun">
+                                <option value="Strasbourg">
+                              </datalist>
+                        </div>
+                        <div class="row p-2">
+                            <button type="button" class="btn btn-outline-danger close col mx-1">annuler</button>
+                            <button id="popup_submit" type="submit" class="btn btn-outline-primary col mx-1">valider</button>
+                        </div>          
                     </form>
                 </div>
             </div>
