@@ -38,7 +38,7 @@ export class Commande {
         tr.innerHTML= `
             <th scope="col">Total</th>
             <th scope="col"></th>
-            <th scope="col">${p.prix}€</th>`
+            <th id='montantTotal' scope="col">${p.prix}€</th>`
         list.appendChild(tr);
 
         return list;
@@ -99,4 +99,29 @@ export function ajtPanier() {
     let p= getPanier();
     let liste = document.getElementById("listProduits");
     liste.appendChild(p.infoPanier(p));
+}
+
+export async function postPanier(nom_client, mail_client, tel_client, montant, etat, lieu_retrait) {
+    let url = "http://localhost:7272/commande";
+    let data = {
+        nom_client : nom_client ,  
+        mail_client : mail_client ,  
+        tel_client : tel_client,
+        montant : montant,  
+        etat : etat,
+        lieu_retrait : lieu_retrait 
+    }
+    // request options
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    // send POST request
+    fetch(url, options)
+        .then(res => res.json())
+        .then(res => console.log(res));
 }
