@@ -39,6 +39,8 @@ CREATE TABLE `categorieproduit` (
 
 INSERT INTO `categorieproduit` (`id`, `nom`, `description`) VALUES
 (1, 'legumes', 'legumes');
+INSERT INTO `categorieproduit` (`nom`, `description`)
+VALUES ('Fruit', 'Toujours de saison');
 
 -- --------------------------------------------------------
 

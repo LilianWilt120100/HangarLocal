@@ -16,11 +16,30 @@ Array.prototype.forEach.call(close, function (el) {
     });
 });
 
+export async function getSetCategorie() {
+    let url = "http://localhost:7272/categorie";
+    let obj = await (await fetch(url)).json();
+    let lCat = document.getElementById('caTabs');
+
+    for (let i = 0; i < obj.length; i++) {
+        let c = obj[i];
+        console.log(c['nom']);
+        let ca = document.createElement('li');
+        ca.setAttribute('class','nav-item');
+        ca.innerHTML = `<a id="produits" class="nav-link Nav">${c['nom']}</a>`;
+        lCat.appendChild(ca);  
+    }
+    
+    return lCommande;
+}
+
+
 switch (window.location.pathname) {
     case "/Hangar_App/src/web/html/mesProduits.html":
         ajtListe();
         break;
     case "/Hangar_App/src/web/html/produits.html":
+        getSetCategorie();
         ajtCarteProduit();
         break;
     case "/Hangar_App/src/web/html/producteurs.html":
