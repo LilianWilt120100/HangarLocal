@@ -22,6 +22,28 @@ export class Commande {
             </div>`
         return tr;
     }
+    infoPanier() {
+        let list = document.createDocumentFragment();
+        this.lProduit.forEach(prod => {
+            let tr = document.createElement("tr");
+            console.log(this.Client);
+            tr.innerHTML= `
+                <td>${prod.nom}</td>
+                <td>${prod.quantite}€</td>
+                <td>${prod.prix}€</td>`
+            list.appendChild(tr);
+        });
+        let tr = document.createElement("tr");
+        //tr.setAttribute(class)
+        console.log(this.Client);
+        tr.innerHTML= `
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+            <th scope="col">${this.prix}€</th>`
+        list.appendChild(tr);
+
+        return list;
+    }
     showCommande() {
         let list = document.createDocumentFragment();
         this.lProduit.forEach(prod => {
@@ -43,7 +65,7 @@ export async function creerCommandes() {
     
     for (let i = 0; i < obj.length; i++) {
         let c = obj[i];
-        lCommande.push(new Commande(c['nom_client'],c['montant'],c['etat']), prod);
+        lCommande.push(new Commande(c['nom_client'],c['montant'],c['etat'], prod));
         
     }
     
@@ -54,12 +76,8 @@ export async function ajtCommande() {
     console.log("commande en cour de gen");
     let commande= await creerCommandes();
     let liste = document.getElementById("listProduits");
-    try {
-        commande.forEach(cmd => {
-            liste.appendChild(cmd.infoCommande());
-        });
-    } catch (error) {
-        
-    }
 
+    commande.forEach(cmd => {
+        liste.appendChild(cmd.infoPanier());
+    });
 }

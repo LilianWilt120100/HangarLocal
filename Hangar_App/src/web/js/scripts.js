@@ -40,6 +40,9 @@ switch (window.location.pathname) {
         window.localStorage
         //ajtCommande();
         break;
+    case "/Hangar_App/src/web/html/panier.html":
+        ajtCommande();
+        break;
 
     default:
         break;
