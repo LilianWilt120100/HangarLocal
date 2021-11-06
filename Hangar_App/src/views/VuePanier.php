@@ -36,7 +36,7 @@ class VuePanier {
            <!-- Responsive navbar-->
            <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary Nav">
                <div class="container px-lg-5 ">
-                   <a class="navbar-brand" href="../index.html">Hangar Local</a><br>
+                   <a class="navbar-brand" href="{$parameters['routeContext']->getRouteParser()->urlFor('Accueil')}">Hangar Local</a><br>
                    <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0 Nav">
                        <li class="nav-item"><a href="produits.html" id="produits" class="nav-link Nav">Produits</a></li>
                        <li class="nav-item"><a href="producteurs.html" id="producteurs" class="nav-link  Nav">Producteurs</a></li>

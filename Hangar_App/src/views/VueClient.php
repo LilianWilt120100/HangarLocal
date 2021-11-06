@@ -39,7 +39,7 @@ class VueClient {
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="container containerPrim px-lg-5 ">
-                    <a class="navbar-brand" href="../web/index.html">Hangar Local</a>
+                    <a class="navbar-brand" href="{$parameters['routeContext']->getRouteParser()->urlFor('Accueil')}">Hangar Local</a>
                     <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0 Nav">
                         <li class="nav-item"><a id="produits" class="nav-link active Nav">Produits</a></li>
                         <li class="nav-item"><a href="producteurs.html" d="producteurs" class="nav-link Nav">Producteurs</a></li>

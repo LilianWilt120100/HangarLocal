@@ -36,14 +36,10 @@ class VueAccueil {
             <!-- Responsive navbar-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div class="container px-lg-5 ">
-                    <a class="navbar-brand justi" href="#!">Hangar Local</a>
+                    <a class="navbar-brand justi" href="{$parameters['routeContext']->getRouteParser()->urlFor('Accueil')}">Hangar Local</a>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a id="produits" class="nav-link">Produits</a></li>
-                            <li class="nav-item"><a id="producteurs" class="nav-link">Producteurs</a></li>
-                            <li class="nav-item"><a id="panier" class="nav-link">
-                                    <img class="me-2" src="../web/assets/icone/shopping-cart-solid.svg" height=20 width=20 />Panier</a>
-                            </li>
+        
                         </ul>
                     </div>
                 </div>

@@ -38,7 +38,7 @@ class VueConnexion
             <!-- Responsive navbar-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-lg-5 ">
-                    <a class="navbar-brand justi" href="./../index.html">Hangar Local <br>Espace producteur</a>
+                    <a class="navbar-brand justi" href="{$parameters['routeContext']->getRouteParser()->urlFor('Accueil')}">Hangar Local <br>Espace producteur</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                         aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
