@@ -132,4 +132,18 @@ $app->post($enProd.'commandefromclient/{nom_client}/{mail_client}/{tel_client}/{
 });
 
 
+$app->post($enProd.'validatecommande/{id}', function (Request $request, Response $responce, $parameters) {
+    $c = new Commande();
+    $id=$parameters['id'];
+    $c->query()->where('id', '=',$id)->firstOrFail();
+    $c->etat = 'validé';
+    $c->save();
+    $responce->getBody()->write('enregistrement ok');
+    return $responce
+    ->withHeader('Access-Control-Allow-Origin', 'https://webetu.iutnc.univ-lorraine.fr')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    ;
+});
+
 $app->run();
