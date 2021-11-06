@@ -41,9 +41,9 @@ class VueClient {
                 <div class="container containerPrim px-lg-5 ">
                     <a class="navbar-brand" href="{$parameters['routeContext']->getRouteParser()->urlFor('Accueil')}">Hangar Local</a>
                     <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0 Nav">
-                        <li class="nav-item"><a id="produits" class="nav-link active Nav">Produits</a></li>
-                        <li class="nav-item"><a href="producteurs.html" d="producteurs" class="nav-link Nav">Producteurs</a></li>
-                        <li class="nav-item"><a href="panier.html" id="panier" class="nav-link Nav">
+                        <li class="nav-item"><a id="{$parameters['routeContext']->getRouteParser()->urlFor('ClientProduits')}" class="nav-link active Nav">Produits</a></li>
+                        <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('VoirProducteurs')}" d="producteurs" class="nav-link Nav">Producteurs</a></li>
+                        <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('GererPanier')}" id="panier" class="nav-link Nav">
                                 <img class="me-2" src="../web/assets/icone/shopping-cart-solid.svg" height=20 width=20 />Panier</a>
                         </li>
                     </ul>

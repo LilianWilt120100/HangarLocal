@@ -38,9 +38,9 @@ class VuePanier {
                <div class="container px-lg-5 ">
                    <a class="navbar-brand" href="{$parameters['routeContext']->getRouteParser()->urlFor('Accueil')}">Hangar Local</a><br>
                    <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0 Nav">
-                       <li class="nav-item"><a href="produits.html" id="produits" class="nav-link Nav">Produits</a></li>
-                       <li class="nav-item"><a href="producteurs.html" id="producteurs" class="nav-link  Nav">Producteurs</a></li>
-                       <li class="nav-item"><a href="panier.html" id="panier" class="nav-link active Nav">
+                       <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('ClientProduits')}" id="produits" class="nav-link Nav">Produits</a></li>
+                       <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('VoirProducteurs')}" id="producteurs" class="nav-link  Nav">Producteurs</a></li>
+                       <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('GererPanier')}" id="panier" class="nav-link active Nav">
                                <img class="me-2" src="../assets/icone/shopping-cart-solid.svg" height=20 width=20 />Panier</a>
                        </li>
                    </ul>
