@@ -41,31 +41,35 @@ $app->add(new Cors());
 $app->get('[/]', function (Request $request, Response $responce, array $parameters) {
     $control = new ControlAccueil($this);
     $routeContext = RouteContext::fromRequest($request);
-    $parameters['route'] = $routeContext;
+    $parameters['routeContext'] = $routeContext;
     return $control->afficherIndex($request, $responce, $parameters);
 })->setName('Accueil');
+
 
 $app->get('/producteur', function (Request $request, Response $responce, array $parameters) {
     $control = new ControlProducteur($this);
     $routeContext = RouteContext::fromRequest($request);
-    $parameters['route'] = $routeContext;
+    $parameters['routeContext'] = $routeContext;
     return $control->afficherConnexion($request, $responce, $parameters);
 })->setName('AfficherConnexion');
 
-/*
+
 $app->post('/producteur', function (Request $request, Response $responce, array $parameters) {
     $control = new ControlProducteur($this);
     $routeContext = RouteContext::fromRequest($request);
-    $parameters['route'] = $routeContext;
-    return $control->afficherConnexion($request, $responce, $parameters);
+    $parameters['routeContext'] = $routeContext;
+    return $control->connexion($request, $responce, $parameters);
 })->setName('Connexion');
-*/
+
+
 $app->get('/client', function (Request $request, Response $responce, array $parameters) {
     $control = new ControlClient($this);
     $routeContext = RouteContext::fromRequest($request);
-    $parameters['route'] = $routeContext;
+    $parameters['routeContext'] = $routeContext;
     return $control->afficherProduits($request, $responce, $parameters);
 })->setName('Produits');
+
+
 
 /*
 $app->get($enProd . 'producteur/{name}', function (Request $request, Response $responce, array $parameters) {

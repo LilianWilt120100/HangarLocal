@@ -14,13 +14,7 @@
             "App\\Controls\\": "src/controllers/",
             "App\\Security\\": "src/security/",
             "App\\Models\\": "src/models/",
-            "App\\Vues\\": "src/views/",
-            "App\\Web\\" : "src/web/",
-            "App\\Web\\Assets\\" : "src/web/assets",
-            "App\\Web\\Css\\" : "src/web/css",
-            "App\\Web\\Html\\" : "src/web/html",
-            "App\\Web\\Js\\" : "src/web/js",
-            "App\\Web\\Scss\\" : "src/web/scss"
+            "App\\Vues\\": "src/views/"
     }
   }
 }

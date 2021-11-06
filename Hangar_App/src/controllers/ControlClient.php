@@ -19,4 +19,9 @@ class ControlClient {
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
     }
+
+    public function commander(Request $request, Response $responce, Array $parameters) {
+
+    }
+
 }

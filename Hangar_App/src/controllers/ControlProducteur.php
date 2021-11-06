@@ -4,8 +4,8 @@ namespace App\Controls;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use App\Vues\VueProducteur;
 use App\Models\Producteur;
+use App\Vues\VueConnexion;
 
 class ControlProducteur {
 
@@ -16,12 +16,20 @@ class ControlProducteur {
     }
 
     public function afficherConnexion(Request $request, Response $responce, Array $parameters) {
-        $vue = new VueProducteur($this->container);
+        $vue = new VueConnexion($this->container);
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
     }
 
     public function connexion (Request $request, Response $responce, Array $parameters) {
 
+    }
+
+    public function afficherProfil(Request $request, Response $responce, Array $parameters) {
+
+    }
+
+    public function afficherCommandes(Request $request, Response $responce, Array $parameters) {
+        
     }
 }
