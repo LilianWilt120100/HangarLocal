@@ -10,9 +10,9 @@ class VueAccueil {
         $this->container = $container;
     }
 
-    public function render(Array $parameters) {
-        $vue = 
-        <<<END
+    public function render(array $parameters) {
+        $vue =
+            <<<END
         <!DOCTYPE html>
         <html lang="fr">
         <head>
@@ -22,7 +22,7 @@ class VueAccueil {
             <meta name="author" content="" />
             <title>Hangar Local</title>
             <!-- Favicon-->
-            <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="../web/assets/favicon.ico" />
             <!-- Bootstrap icons-->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
             <!-- Core theme CSS (includes Bootstrap)-->
@@ -42,16 +42,12 @@ class VueAccueil {
                             <li class="nav-item"><a id="produits" class="nav-link">Produits</a></li>
                             <li class="nav-item"><a id="producteurs" class="nav-link">Producteurs</a></li>
                             <li class="nav-item"><a id="panier" class="nav-link">
-                                    <img class="me-2" src="assets/icone/shopping-cart-solid.svg" height=20 width=20 />Panier</a>
+                                    <img class="me-2" src="../web/assets/icone/shopping-cart-solid.svg" height=20 width=20 />Panier</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-        
-        
-        
-        
         
             <!-- Header-->
         
@@ -62,7 +58,7 @@ class VueAccueil {
         
                         <p class="title fs-1 fw-bold">Hangar Local</p>
                         <br><br><br>
-                        <a class="btn btn-primary w-25" href="html/espaceProducteur.html">Espace producteur</a>
+                        <a class="btn btn-primary w-25" href="">Espace producteur</a>
                         <a class="btn btn-primary w-25" href="html/produits.html">Espace client</a>
         
                         <br><br><br><br><br><br>
@@ -79,7 +75,7 @@ class VueAccueil {
             <!-- Bootstrap core JS-->
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Core theme JS-->
-            <script type="module" src="../src/web/js/scripts.js"></script>
+            <script type="module" src="../web/js/scripts.js"></script>
         </body>
         
         </html>
@@ -87,4 +83,3 @@ class VueAccueil {
         return $vue;
     }
 }
-

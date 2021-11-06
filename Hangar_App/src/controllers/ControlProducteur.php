@@ -4,9 +4,10 @@ namespace App\Controls;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
-use App\Vues\VueClient;
+use App\Vues\VueProducteur;
+use App\Models\Producteur;
 
-class ControlClient {
+class ControlProducteur {
 
     private $container;
 
@@ -14,9 +15,13 @@ class ControlClient {
         $this->container = $container;
     }
 
-    public function afficherProduits(Request $request, Response $responce, Array $parameters) {
-        $vue = new VueClient($this->container);
+    public function afficherConnexion(Request $request, Response $responce, Array $parameters) {
+        $vue = new VueProducteur($this->container);
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
+    }
+
+    public function connexion (Request $request, Response $responce, Array $parameters) {
+
     }
 }

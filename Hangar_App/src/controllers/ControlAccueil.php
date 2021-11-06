@@ -2,19 +2,20 @@
 
 namespace App\Controls;
 
-use App\Vues\VueAccueil;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use DI\Container;
+use App\Vues\VueAccueil;
 
 class ControlAccueil {
 
-    private $container;
+    private $container = null;
 
-    public function __construct($container) {
+    public function __construct(Container $container) {
         $this->container = $container;
     }
 
-    public function afficherIndex(Request $request, Response $responce, Array $parameters) {
+    public function afficherIndex(Request $request, Response $responce, Array $parameters): Response {
         $vue = new VueAccueil($this->container);
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
