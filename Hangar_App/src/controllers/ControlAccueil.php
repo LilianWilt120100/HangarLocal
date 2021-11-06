@@ -20,4 +20,8 @@ class ControlAccueil {
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
     }
+
+    public function afficherApropos(Request $request, Response $responce, Array $parameters) {
+        
+    }
 }

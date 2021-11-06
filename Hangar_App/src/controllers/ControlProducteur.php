@@ -21,10 +21,14 @@ class ControlProducteur {
         return $responce;
     }
 
-    public function connexion (Request $request, Response $responce, Array $parameters) {
+    public function connexion(Request $request, Response $responce, Array $parameters) {
 
     }
 
+    public function afficherProduits(Request $request, Response $responce, Array $parameters) {
+
+    }
+    
     public function afficherProfil(Request $request, Response $responce, Array $parameters) {
 
     }

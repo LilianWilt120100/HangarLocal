@@ -62,92 +62,68 @@ $app->post('/producteur', function (Request $request, Response $responce, array 
 })->setName('Connexion');
 
 
-$app->get('/client', function (Request $request, Response $responce, array $parameters) {
+$app->get('/client/produits', function (Request $request, Response $responce, array $parameters) {
     $control = new ControlClient($this);
     $routeContext = RouteContext::fromRequest($request);
     $parameters['routeContext'] = $routeContext;
     return $control->afficherProduits($request, $responce, $parameters);
-})->setName('Produits');
+})->setName('ClientProduits');
 
 
+$app->post('/client/produits', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlClient($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->commander($request, $responce, $parameters);
+})->setName('Commander');
 
-/*
-$app->get($enProd . 'producteur/{name}', function (Request $request, Response $responce, array $parameters) {
-    $pr = new Producteur();
-    $name = $parameters['name'];
-    $pr = $pr->findByName($name);
-    $responce->getBody()->write('' . $pr);
-    return $responce;
-});
 
-$app->get($enProd . 'commande', function (Request $request, Response $responce, array $parameters) {
-    $c = new Commande();
-    $c = $c->all();
-    $responce->getBody()->write('' . $c);
-    return $responce;
-});
+$app->get('/client/producteurs', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlClient($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->voirProducteurs($request, $responce, $parameters);
+})->setName('VoirProducteurs');
 
-$app->get($enProd . 'commande/{id}', function (Request $request, Response $responce, array $parameters) {
-    $c = new Commande();
-    $id = $parameters['id'];
-    $c = $c->findById($id);
-    $responce->getBody()->write('' . $c);
-    return $responce;
-});
 
-$app->get($enProd . 'produit', function (Request $request, Response $responce, array $parameters) {
-    $p = new Produit();
-    $p = $p->all();
-    $responce->getBody()->write('' . $p);
-    return $responce;
-});
-$app->get($enProd . 'categorie', function (Request $request, Response $responce, array $parameters) {
-    $p = new Categorie();
-    $p = $p->all();
-    $responce->getBody()->write('' . $p);
-    return $responce;
-});
+$app->get('/client/panier', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlClient($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->gererPanier($request, $responce, $parameters);
+})->setName('GererPanier');
 
-$app->get($enProd . 'produit/{id}', function (Request $request, Response $responce, array $parameters) {
-    $p = new Produit();
-    $id = $parameters['id'];
-    $p = $p->findById($id);
-    $responce->getBody()->write('' . $p);
-    return $responce;
-});
 
-$app->get($enProd . 'produitbyproducteur/{id_producteur}', function (Request $request, Response $responce, array $parameters) {
-    $p = new Produit();
-    $id = $parameters['id_producteur'];
-    $p = $p->query()->where('id_producteur', '=', $id)->get();
-    $responce->getBody()->write('' . $p);
-    return $responce;
-});
+$app->get('/producteur/{id}/produits', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlProducteur($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->afficherProduits($request, $responce, $parameters);
+})->setName('ProducteurProduit');
 
-$app->get($enProd . 'produitbycategorie/{id_categorie}', function (Request $request, Response $responce, array $parameters) {
-    $p = new Produit();
-    $id = $parameters['id_categorie'];
-    $p = $p->query()->where('id_categorie', '=', $id)->get();
-    $responce->getBody()->write('' . $p);
-    return $responce;
-});
 
-$app->post($enProd . 'commandefromclient/{nom_client}/{mail_client}/{tel_client}/{montant}/{lieu_retrait}', function (Request $request, Response $responce, $parameters) {
-    $c = new Commande();
-    //$c->id=$parameters['id'];
-    $c->nom_client = $parameters['nom_client'];
-    $c->mail_client = $parameters['mail_client'];
-    $c->tel_client = $parameters['tel_client'];
-    $c->montant = $parameters['montant'];
-    $c->etat = 'en cours';
-    $c->lieu_retrait = $parameters['lieu_retrait'];
-    $c->save();
-    $responce->getBody()->write('enregistrement ok');
-    return $responce
-        ->withHeader('Access-Control-Allow-Origin', 'https://webetu.iutnc.univ-lorraine.fr')
-        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');;
-});
+$app->get('/producteur/{id}/commandes', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlProducteur($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->afficherCommandes($request, $responce, $parameters);
+})->setName('ProducteurCommandes');
 
-*/
+
+$app->get('/producteur/{id}/profil', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlProducteur($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->afficherProfil($request, $responce, $parameters);
+})->setName('ProducteurProfil');
+
+
+$app->get('/apropos', function (Request $request, Response $responce, array $parameters) {
+    $control = new ControlAccueil($this);
+    $routeContext = RouteContext::fromRequest($request);
+    $parameters['routeContext'] = $routeContext;
+    return $control->afficherApropos($request, $responce, $parameters);
+})->setName('A propos');
+
+
 $app->run();

@@ -24,4 +24,11 @@ class ControlClient {
 
     }
 
+    public function voirProducteurs(Request $request, Response $responce, Array $parameters) {
+
+    }
+
+    public function gererPanier(Request $request, Response $responce, Array $parameters) {
+        
+    }
 }
