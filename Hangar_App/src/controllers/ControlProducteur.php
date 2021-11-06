@@ -26,6 +26,14 @@ class ControlProducteur {
 
     public function connexion(Request $request, Response $responce, Array $parameters) {
 
+        if (!empty($request->getParsedBody()['login'])) {
+            $mail = $request->getParsedBody()['login'];
+            $mdp = $request->getParsedBody()['password'];
+            $mail = filter_var($mail, FILTER_SANITIZE_STRING);
+
+            $res = Producteur::query()->where('mail','=',$mail)->get();
+            
+        }
     }
 
     public function afficherProduits(Request $request, Response $responce, Array $parameters) {

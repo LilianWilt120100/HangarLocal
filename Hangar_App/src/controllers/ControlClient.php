@@ -7,6 +7,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 use App\Vues\VueClient;
 use App\Vues\VuePanier;
 use App\Vues\VueProducteurs;
+use App\Models\Produit;
+use App\Models\Producteur;
 
 class ControlClient {
 
@@ -18,6 +20,19 @@ class ControlClient {
 
     public function afficherProduits(Request $request, Response $responce, Array $parameters) {
         $vue = new VueClient($this->container);
+
+        $categorie = "Legumes"; 
+        $listproduit = Produit::query()->where('categorie', '=', $categorie)->get();
+
+        $liste_producteur = [];
+        foreach($listproduit as $prod){
+            array_push($liste_prod, Producteur::query()->where('id', '=', $prod->id_producteur)->get());
+        }
+        
+
+        $parameters['listeProd'] = $listproduit;
+        $parameters['listeProd'] = $listprod;
+
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
     }

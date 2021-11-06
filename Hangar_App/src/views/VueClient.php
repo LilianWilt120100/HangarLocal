@@ -10,7 +10,30 @@ class VueClient {
         $this->container = $container;
     }
 
+    public function affListeProd($parameters){
+        $listeProd = "";
+
+        foreach($parameters['lisetProd'] as $prod){
+            $listeProd += <<<END
+            <div class="card-body">
+                    <h4 class="card-title" id="infot{$prod->nom}">{$parameters->nom}
+                    <img class="me-2" src="../assets/icone/info-circle-solid.svg" height=20 width=20 /></h4>
+                    <div class="card-text description">
+                        <p>Vendu par : <a href="../html/producteurs.html" class="producteur">{$parameters['producteur']}</a></p>
+                        <p>Prix : {$prod->tarif_unitaire}€</p>
+                    </div>
+                    <input type="number" name="quantite" class="quantite" min="0" value="1">
+                    <a class="btn btn-outline-primary">ajouter au panier</a>
+                </div>
+            END;
+        }
+
+        return $listeProd;
+    }
+
     public function render(array $parameters) {
+        $listeProd = affListeProd($parameters);
+
         $vue = <<<END
         <!DOCTYPE html>
         <html lang="fr">
@@ -22,7 +45,7 @@ class VueClient {
             <meta name="author" content="" />
             <title>Hangar Local</title>
             <!-- Favicon-->
-            <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="../web/assets/favicon.ico" />
             <!-- Bootstrap icons-->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
             <!-- Core theme CSS (includes Bootstrap)-->
@@ -68,8 +91,9 @@ class VueClient {
                 <div class="container">
                     <div class="card-group vgr-cards">
                         <!-- ajt cartes ici -->
-                
+END;
 
+                $vue += $listeProd + <<<END
                     </div>
                 </div>
             </section>
