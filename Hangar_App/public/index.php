@@ -24,7 +24,7 @@ $db->setAsGlobal();
 $db->bootEloquent();
 $enProd="/";
 //Décommanter cette ligne quand on push sur webetu (oui je sais c'est moche)
-//$enProd="/www/franco377u/hangarLocal/Hangar_App/public/";
+$enProd="/www/franco377u/hangarLocal/Hangar_App/public/";
 
 $container = new Container();
 

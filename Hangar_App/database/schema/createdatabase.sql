@@ -71,7 +71,9 @@ CREATE TABLE `produit` (
 
 INSERT INTO `produit` (`id`, `nom`, `description`, `urlImage`, `taille_lot`, `tarif_unitaire`, `id_producteur`, `id_categorie`) VALUES
 (1,	'carotte',	'grosse',	'http://localhost/phpmyadmin/themes/pmahomme/img/logo_left.png',	'1 kg',	2.5,	1,	1),
-(2,	"Poivron à l\'unités",	'très frais',	'../assets/img/poivron.png',	'1',	4,	1,	1);
+(2,	"Poivron à l\'unités",	'très frais',	'../assets/img/poivron.png',	'1',	4,	1,	2),
+(3,	"Fraise",	'très frais',	'../assets/img/fraise.png',	'500g',	2,	1,	1),
+(4,	"Noisettes",	'fruit a coques',	'../assets/img/noisette.png',	'1Kg',	4,	1,	2);
 
 DROP TABLE IF EXISTS `quantite`;
 CREATE TABLE `quantite` (
