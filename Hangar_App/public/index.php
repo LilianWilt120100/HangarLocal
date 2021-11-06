@@ -134,7 +134,8 @@ $app->post($enProd.'commandefromclient/{nom_client}/{mail_client}/{tel_client}/{
 
 $app->post($enProd.'validatecommande/{id}', function (Request $request, Response $responce, $parameters) {
     $c = new Commande();
-    $c->id=$parameters['id'];
+    $id=$parameters['id'];
+    $c->query()->where('id', '=',$id)->firstOrFail();
     $c->etat = 'validé';
     $c->save();
     $responce->getBody()->write('enregistrement ok');
