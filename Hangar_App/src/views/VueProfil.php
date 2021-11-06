@@ -44,8 +44,8 @@ class VueProfil {
                             <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <ul id="tabs" class="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('ProducteurProduit')}" id="produits" class="nav-link">Produits</a></li>
-                                    <li class="nav-item"><a href="./monProfil.html" id="profil" class="nav-link active">Profil</a></li>
-                                    <li class="nav-item"><a href="./mesCommandes.html" id="commandes" class="nav-link">Commandes</a></li>
+                                    <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('ProducteurProfil')}" id="profil" class="nav-link active">Profil</a></li>
+                                    <li class="nav-item"><a href="{$parameters['routeContext']->getRouteParser()->urlFor('ProducteurCommandes')}" id="commandes" class="nav-link">Commandes</a></li>
                                 </ul>
                             </ul>
                         </div>
