@@ -1,0 +1,57 @@
+version: '3.9'
+services:
+    php:
+        container_name: Hangar_App
+        build:
+            context: ./docker
+            dockerfile: hangar_app.Dockerfile
+        image: php:8.0-apache
+        volumes:
+            - ./:/var/www/html/
+        ports:
+            - 8000:80
+        networks:
+            default:
+                aliases:
+                    - Hangar_App     
+    db:
+        container_name: db
+        image: mysql:latest
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        volumes :
+            - ./database/schema/createdatabase.sql:/docker-entrypoint-initdb.d/createdatabase.sql
+            - ./database/data:/var/lib/mysql
+        ports:
+            - "9906:3306"
+        networks:
+            default:
+                aliases:
+                    - db
+    phpmyadmin:
+        container_name : phpmyadmin
+        image: phpmyadmin/phpmyadmin
+        ports:
+        - '8080:80'
+        restart: always
+        environment:
+            PMA_HOST: db
+        depends_on:
+            - db
+
+    composer:
+        container_name : composer
+        image: composer:latest
+        volumes:
+            - ./:/var/www/html/
+        networks:
+            default:
+                aliases:
+                    - composer
+networks:
+    default:
+        external: false

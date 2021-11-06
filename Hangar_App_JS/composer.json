@@ -1,0 +1,20 @@
+{
+  "require": {
+    "php": "^7.1 || ^8.0",
+        "slim/slim": "^4",
+        "slim/psr7": "^1.5",
+        "laravel/laravel": "^8.6",
+        "illuminate/database": "^8.64",
+        "php-di/php-di": "^6.3",
+    "php-di/slim-bridge": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+            "App\\Controls\\": "src/controllers/",
+            "App\\Security\\": "src/security/",
+            "App\\Models\\": "src/models/",
+            "App\\Vues\\": "src/views/"
+    }
+  }
+}
