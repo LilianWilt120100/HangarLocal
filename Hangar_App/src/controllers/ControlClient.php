@@ -31,7 +31,7 @@ class ControlClient {
         
 
         $parameters['listeProd'] = $listproduit;
-        $parameters['listeProd'] = $listprod;
+        $parameters['listeProd'] = $listproducteur;
 
         $responce->getBody()->write($vue->render($parameters));
         return $responce;
