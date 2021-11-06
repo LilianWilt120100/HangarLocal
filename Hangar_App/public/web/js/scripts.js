@@ -1,4 +1,4 @@
-import { ajtListe, ajtCarte as ajtCarteProduit} from "./Produit.js";
+import { ajtListe, ajtCarte as ajtCarteProduit, ajtCarteByCat as ajtCarteProduitByCat} from "./Produit.js";
 import { ajtCommande, ajtPanier } from "./Commande.js";
 import { ajtCarte as ajtCarteProducteur, ajtProfil, getProducteur } from "./Producteur.js";
 import config from './config.js';
@@ -24,12 +24,17 @@ export async function getSetCategorie() {
         console.log(c['nom']);
         let ca = document.createElement('li');
         ca.setAttribute('class','nav-item');
-        ca.innerHTML = `<a id="produits" class="nav-link Nav">${c['nom']}</a>`;
+        ca.innerHTML = `<a id="${c['nom']}" class="nav-link Nav">${c['nom']}</a>`;
+        ca.addEventListener('click', (e) => {
+            console.log('click on ',c['nom']);
+            ajtCarteProduitByCat(c['nom']);
+        });
         lCat.appendChild(ca);  
     }
     
     return lCat;
 }
+
 
 switch (window.location.pathname) {
     case "/public/web/html/mesProduits.html":
