@@ -101,9 +101,13 @@ $app->get($enProd.'produitbyproducteur/{id_producteur}', function (Request $requ
     return $responce;
 });
 
-$app->get($enProd.'produitbycategorie/{id_categorie}', function (Request $request, Response $responce, $parameters) {
+$app->get($enProd.'produitbycategorie/{nom_categorie}', function (Request $request, Response $responce, $parameters) {
     $p = new Produit();
-    $id = $parameters['id_categorie'];
+    $c = new Categorie();
+    $nom_categorie = $parameters['nom_categorie'];
+    $id = $c->query()->where('nom', '=', $nom_categorie)->firstOrFail();
+    $id = $id['id'];
+    //echo $id;
     $p = $p->query()->where('id_categorie', '=', $id)->get();
     $responce->getBody()->write('' . $p);
     return $responce;
