@@ -14,8 +14,7 @@ class VueConnexion
 
     public function render(array $parameters)
     {
-        $vue =
-            <<<END
+        $vue =  <<<END
         <!DOCTYPE html>
         <html lang="fr">
         <head>

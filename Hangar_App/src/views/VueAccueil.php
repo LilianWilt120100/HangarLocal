@@ -59,7 +59,7 @@ class VueAccueil {
                         <p class="title fs-1 fw-bold">Hangar Local</p>
                         <br><br><br>
                         <a class="btn btn-primary w-25" href="{$parameters['routeContext']->getRouteParser()->urlFor('AfficherConnexion')}">Espace producteur</a>
-                        <a class="btn btn-primary w-25" href="{$parameters['routeContext']->getRouteParser()->urlFor('Client')}">Espace client</a>
+                        <a class="btn btn-primary w-25" href="{$parameters['routeContext']->getRouteParser()->urlFor('ClientProduits')}">Espace client</a>
         
                         <br><br><br><br><br><br>
                 </div>
