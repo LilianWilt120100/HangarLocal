@@ -150,7 +150,7 @@ export async function creerProduit(url = config.webetu_url+"/produit") {
 }
 export async function creerProduitByCat(categorie) {
     let prod = [];
-    let url = config.webetu_url+"/produit/"+categorie;
+    let url = config.webetu_url+"/produitbycategorie/"+categorie;
     //TODO
     return creerProduit(url)
 }
@@ -163,9 +163,10 @@ export async function ajtCarte() {
 }
 export async function ajtCarteByCat(categorie) {
     let prod= await creerProduitByCat(categorie);
-    let body = document.getElementsByClassName("card-group")[0];
+    let card_group = document.getElementsByClassName("card-group")[0];
+    card_group.innerHTML='';
     prod.forEach(produit => {
-        body.appendChild(produit.toHTML())
+        card_group.appendChild(produit.toHTML())
     });
 }
 export async function ajtListe() {
